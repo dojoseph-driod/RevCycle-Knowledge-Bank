@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental RCM | Project Atlas</title>
+<meta name="description" content="Saturday series: dental revenue cycle management fundamentals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#D97F6E;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill ">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill ">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill ">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill current">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">Saturday Series</p>
+    <h1>Dental RCM</h1>
+    <p>Where dental billing overlaps with medical RCM — and where it plays by its own rules entirely.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "SAT-001",
+    "date": "2026-07-11",
+    "readTime": "3 min",
+    "title": "CDT vs. CPT: why dental claims speak a different code language",
+    "excerpt": "Dental procedures use their own code set entirely \u2014 here's why that matters for anyone crossing over from medical RCM.",
+    "body": [
+      "Dental procedures are billed using CDT (Current Dental Terminology) codes, maintained by the ADA, rather than the CPT codes used in medical billing.",
+      "When a dental procedure has a medical component \u2014 like oral surgery related to an accident \u2014 it may need to be billed with both CDT codes to the dental plan and CPT/ICD codes to a medical plan, a process called dual coding.",
+      "Understanding which payer needs which code set is often the first real hurdle for someone moving from medical RCM into dental."
+    ]
+  },
+  {
+    "id": "SAT-002",
+    "date": "2026-07-18",
+    "readTime": "2 min",
+    "title": "Why dental plans use annual maximums instead of deductible-driven coinsurance",
+    "excerpt": "Dental insurance is structured differently from medical insurance in a way that changes how patient responsibility gets calculated.",
+    "body": [
+      "Most dental plans cap what they'll pay per year with an <strong>annual maximum</strong> (often $1,000\u2013$2,000), rather than the deductible-and-out-of-pocket-max model common in medical insurance.",
+      "Once a patient hits their annual maximum, they are typically responsible for 100% of remaining costs for the rest of the plan year \u2014 a very different dynamic than medical out-of-pocket maximums, which cap patient liability.",
+      "This is why treatment planning and timing (spreading procedures across calendar years) is a routine financial conversation in dental practices in a way it rarely is in medical care."
+    ]
+  },
+  {
+    "id": "SAT-003",
+    "date": "2026-07-25",
+    "readTime": "2 min",
+    "title": "Predeterminations: dental's version of prior authorization",
+    "excerpt": "Not required, not a guarantee of payment \u2014 but often the smartest five minutes you can spend before a major procedure.",
+    "body": [
+      "A predetermination is a request sent to the dental payer before treatment, asking them to estimate what they'll cover for a proposed procedure.",
+      "Unlike medical prior authorization, it's usually optional and it is explicitly not a guarantee of payment \u2014 coverage can still change by the time the claim is actually submitted.",
+      "For costly procedures (crowns, implants, orthodontics), getting a predetermination on file gives both the practice and the patient a much more reliable cost estimate before work begins."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'SAT'});</script>
+</body>
+</html>

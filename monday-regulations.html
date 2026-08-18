@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Regulations | Project Atlas</title>
+<meta name="description" content="Monday series: US healthcare regulations explained in plain terms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#5AA8D8;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill current">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill ">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill ">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">Monday Series</p>
+    <h1>Healthcare Regulations</h1>
+    <p>The laws, agencies, and rules that shape how every claim is billed, processed, and paid — explained without the legalese.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "MON-001",
+    "date": "2026-07-06",
+    "readTime": "3 min",
+    "title": "HIPAA is not one law \u2014 it's five, and RCM teams mostly deal with two",
+    "excerpt": "Everyone says 'HIPAA' like it's a single rule. For revenue cycle work, only two of its five rules really matter day to day.",
+    "body": [
+      "HIPAA (the Health Insurance Portability and Accountability Act) is actually made up of several distinct rules, each governing something different: Privacy, Security, Transactions, Identifiers, and Enforcement.",
+      "For RCM specifically, the <strong>Privacy Rule</strong> and the <strong>Transactions Rule</strong> matter most. The Privacy Rule governs how patient information can be used and disclosed \u2014 including what a billing team can share with a patient's family member over the phone. The Transactions Rule standardizes the electronic formats claims must use (like the 837 claim format).",
+      "Knowing which rule applies to which problem saves time. A question about 'can we tell the caller the balance' is a Privacy Rule question. A question about 'why did the clearinghouse reject our file format' is a Transactions Rule question."
+    ]
+  },
+  {
+    "id": "MON-002",
+    "date": "2026-07-13",
+    "readTime": "3 min",
+    "title": "No Surprises Act: what changed for out-of-network billing",
+    "excerpt": "Balance billing rules changed significantly in 2022. Here is what RCM teams still get wrong about the No Surprises Act.",
+    "body": [
+      "The No Surprises Act protects patients from unexpected out-of-network bills in specific situations: emergency care, and non-emergency care at in-network facilities where an out-of-network provider was involved without the patient's informed consent.",
+      "It does not ban all out-of-network billing. A patient who knowingly and voluntarily chooses an out-of-network provider, with proper notice and consent, can still be balance billed in many cases.",
+      "For providers, the operational impact is real: Good Faith Estimates are now required for uninsured and self-pay patients, and the Independent Dispute Resolution process gives providers a formal path to contest payer payment amounts."
+    ]
+  },
+  {
+    "id": "MON-003",
+    "date": "2026-07-20",
+    "readTime": "2 min",
+    "title": "CMS vs. commercial payer policy: who actually wins?",
+    "excerpt": "When a CMS rule and a commercial payer's own policy seem to disagree, RCM teams need to know which one governs the claim in front of them.",
+    "body": [
+      "CMS (Centers for Medicare & Medicaid Services) rules govern Medicare and Medicaid claims directly. They do not automatically apply to commercial payers.",
+      "Commercial payers frequently model their own policies after CMS guidance, but they are free to be more restrictive (or occasionally more generous) in their own coverage determinations.",
+      "The practical rule: always check the specific payer policy for the plan on the claim, not just what CMS says, unless the claim is actually a Medicare or Medicaid claim."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'MON'});</script>
+</body>
+</html>

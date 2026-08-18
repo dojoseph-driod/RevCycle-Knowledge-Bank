@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANSI CARC Codes | Project Atlas</title>
+<meta name="description" content="Wednesday series: ANSI CARC and RARC denial codes explained.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#4FD1AE;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill ">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill current">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill ">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">Wednesday Series</p>
+    <h1>ANSI CARC Codes</h1>
+    <p>Claim Adjustment Reason Codes, decoded one at a time — what each one actually means, and what to do next.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "WED-001",
+    "date": "2026-07-08",
+    "readTime": "2 min",
+    "title": "CARC vs. RARC: two codes on the same remit, two different jobs",
+    "excerpt": "They show up on the same remittance advice, but a CARC and a RARC are not interchangeable \u2014 and mixing them up leads to the wrong fix.",
+    "body": [
+      "A CARC (Claim Adjustment Reason Code) explains <strong>why</strong> a claim line was paid differently than billed \u2014 reduced, denied, or adjusted.",
+      "A RARC (Remittance Advice Remark Code) adds <strong>additional detail</strong> to that explanation \u2014 supplementary context the CARC alone doesn't capture.",
+      "Reading only the CARC and ignoring the RARC is one of the most common reasons AR teams misroute a denial to the wrong queue."
+    ]
+  },
+  {
+    "id": "WED-002",
+    "date": "2026-07-15",
+    "readTime": "2 min",
+    "title": "CO-45: the code that isn't actually a denial",
+    "excerpt": "CO-45 shows up constantly on remits and gets treated like a problem \u2014 but it's usually just the contract working as intended.",
+    "body": [
+      "CO-45 means 'charge exceeds fee schedule/maximum allowable' \u2014 the difference between what was billed and what the payer contract allows.",
+      "In most in-network scenarios, this is a normal contractual adjustment, not an error. The provider agreed to accept the allowed amount as payment in full for that line.",
+      "The code becomes worth investigating only when the adjustment amount looks larger than the contracted rate should produce \u2014 that's a fee schedule or contract-loading issue, not a coding issue."
+    ]
+  },
+  {
+    "id": "WED-003",
+    "date": "2026-07-22",
+    "readTime": "3 min",
+    "title": "CO-50 and CO-96: medical necessity vs. 'non-covered', explained side by side",
+    "excerpt": "Both codes can feel like a dead end. One usually has an appeal path. The other usually doesn't.",
+    "body": [
+      "CO-50 means the service was denied as 'not medically necessary' according to the payer's coverage policy for that diagnosis.",
+      "CO-96 means the service is simply non-covered under the patient's plan \u2014 often regardless of medical necessity.",
+      "A CO-50 denial is often appealable with additional clinical documentation. A CO-96 denial usually is not, because the issue is plan design, not clinical justification \u2014 appealing it wastes time that could go toward a winnable case."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'WED'});</script>
+</body>
+</html>

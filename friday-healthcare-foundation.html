@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Foundation | Project Atlas</title>
+<meta name="description" content="Friday series: healthcare RCM fundamentals for beginners.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#3FC4B8;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill ">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill ">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill ">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill current">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">Friday Series</p>
+    <h1>Healthcare Foundation</h1>
+    <p>The fundamentals every RCM career is built on — the vocabulary, players, and flow of the system, for anyone starting from zero.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "FRI-001",
+    "date": "2026-07-10",
+    "readTime": "3 min",
+    "title": "The five players in every healthcare claim",
+    "excerpt": "Before any code or denial makes sense, it helps to know who's actually involved in a claim.",
+    "body": [
+      "Every claim involves at minimum: the <strong>patient</strong> (who received care), the <strong>provider</strong> (who delivered it), the <strong>payer</strong> (who's being billed), the <strong>clearinghouse</strong> (who routes the claim electronically), and the <strong>employer or exchange</strong> (who sold the patient their plan).",
+      "Each player has different incentives. The provider wants to be paid accurately and promptly. The payer wants to pay only what's contractually owed. The patient wants clarity and an affordable bill.",
+      "Understanding whose interest is driving a given step in the process makes the whole revenue cycle much easier to reason about."
+    ]
+  },
+  {
+    "id": "FRI-002",
+    "date": "2026-07-17",
+    "readTime": "3 min",
+    "title": "Charges, allowed amount, and paid amount: three numbers, three meanings",
+    "excerpt": "These three numbers appear on almost every EOB and they are not the same thing \u2014 mixing them up is the most common beginner mistake.",
+    "body": [
+      "The <strong>charge</strong> is what the provider billed \u2014 their full, undiscounted rate for the service.",
+      "The <strong>allowed amount</strong> is what the payer's contract actually permits for that service \u2014 usually lower than the charge.",
+      "The <strong>paid amount</strong> is what the payer actually sent, which may be lower still after applying the patient's deductible, copay, or coinsurance. The gap between charge and allowed amount is typically a contractual write-off, not something owed by the patient."
+    ]
+  },
+  {
+    "id": "FRI-003",
+    "date": "2026-07-24",
+    "readTime": "2 min",
+    "title": "What 'the revenue cycle' actually means, start to finish",
+    "excerpt": "It's a phrase used constantly and defined rarely. Here's the whole loop in under a minute.",
+    "body": [
+      "The revenue cycle is every step between a patient scheduling care and the provider finally collecting full, correct payment for it.",
+      "In order: patient access (scheduling, eligibility) \u2192 charge capture (documenting what was done) \u2192 claims submission \u2192 payment posting \u2192 denial management \u2192 AR follow-up \u2192 reporting.",
+      "It's called a 'cycle' because the data and lessons from the end of one claim \u2014 a denial, a payment pattern \u2014 should feed back into how the next claim is handled at the front end."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'FRI'});</script>
+</body>
+</html>

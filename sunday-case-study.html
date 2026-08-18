@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study | Project Atlas</title>
+<meta name="description" content="Sunday series: healthcare RCM case studies, unpacked end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#8FA3B8;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill ">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill ">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill ">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill current">SUN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">Sunday Series</p>
+    <h1>Case Study</h1>
+    <p>One real-world scenario each week, unpacked end to end — from the first red flag to the final resolution.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "SUN-001",
+    "date": "2026-07-12",
+    "readTime": "4 min",
+    "title": "Case study: a 22% denial rate traced back to one scheduling template",
+    "excerpt": "A mid-size clinic's denial rate crept up over six months. The root cause turned out to be nowhere near the billing office.",
+    "body": [
+      "The clinic's denial rate rose from roughly 8% to 22% over two quarters, with CO-27 (coverage terminated) and CO-197 (no authorization) accounting for most of the increase.",
+      "The billing team initially focused on AR follow-up speed, assuming the issue was on the back end. Denial rate kept climbing.",
+      "The actual cause was a scheduling template update that had quietly removed a mandatory 'insurance re-verification' field for returning patients, so eligibility was only being checked for new patients.",
+      "Once the field was restored and re-verification was enforced at check-in for every visit, the denial rate returned to baseline within six weeks \u2014 with no change in staffing or billing process at all."
+    ]
+  },
+  {
+    "id": "SUN-002",
+    "date": "2026-07-19",
+    "readTime": "4 min",
+    "title": "Case study: recovering $180K in aged AR without hiring anyone new",
+    "excerpt": "A practice with a mounting AR balance over 120 days assumed they needed more collectors. The data said otherwise.",
+    "body": [
+      "An AR aging review showed roughly $180,000 sitting in accounts over 120 days old, spread across hundreds of small-balance claims.",
+      "Rather than hiring, the team segmented the AR by root cause: unworked denials, claims stuck in a clearinghouse rejection queue nobody was monitoring, and a batch of claims for a payer whose portal credentials had quietly expired.",
+      "Each segment got a different fix \u2014 a two-week denial sprint, a clearinghouse alert rule, and a credential reset \u2014 rather than one generic 'call more accounts' push.",
+      "Within one quarter, the practice recovered roughly $140,000 of the $180,000, and the rest was correctly written off as genuinely uncollectible, which the team hadn't had time to properly triage before."
+    ]
+  },
+  {
+    "id": "SUN-003",
+    "date": "2026-07-26",
+    "readTime": "3 min",
+    "title": "Case study: when 'we're compliant' and 'we're collecting well' were not the same thing",
+    "excerpt": "A practice passed every compliance audit and still had a collections problem. The gap explains a lot about what compliance actually covers.",
+    "body": [
+      "The practice's coding and documentation were clean, its HIPAA program was solid, and it passed every external audit without findings.",
+      "Its net collection rate, however, was sitting at 78% \u2014 well below the 95%+ benchmark for a well-run practice \u2014 and no one had connected the two facts.",
+      "The gap wasn't compliance. It was operational: slow charge entry, a two-week lag before claims were even submitted, and no formal denial-tracking process at all.",
+      "The lesson the team took away: passing an audit confirms you're following the rules. It says nothing about whether you're actually collecting what you're owed."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'SUN'});</script>
+</body>
+</html>

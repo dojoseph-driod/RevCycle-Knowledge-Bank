@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR Scenarios | Project Atlas</title>
+<meta name="description" content="Thursday series: real accounts receivable (AR) scenarios in healthcare RCM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#E0985A;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill ">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill ">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill current">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">Thursday Series</p>
+    <h1>AR Scenarios</h1>
+    <p>Real accounts receivable situations, worked through step by step — the kind of judgment calls that don't show up in a training manual.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "THU-001",
+    "date": "2026-07-09",
+    "readTime": "3 min",
+    "title": "Scenario: a claim sits at 45 days with zero follow-up activity. What now?",
+    "excerpt": "Not every aged claim needs the same next step. Here's how to triage it in under two minutes.",
+    "body": [
+      "First check: was the claim ever acknowledged by the payer? If there's no clearinghouse acceptance record, the problem might be a submission failure, not a slow payer.",
+      "Second check: is there a denial on file that never got worked? Pull the remit. An unworked denial sitting silently is a completely different problem than a claim still in adjudication.",
+      "Third check: if it's genuinely still pending with no denial and no rejection, that's when a payer status call or portal check is the right next move \u2014 not before."
+    ]
+  },
+  {
+    "id": "THU-002",
+    "date": "2026-07-16",
+    "readTime": "3 min",
+    "title": "Scenario: the payer says 'paid,' the practice management system says 'unpaid'",
+    "excerpt": "This mismatch is more common than it should be, and it's rarely the payer's fault.",
+    "body": [
+      "Start with the EOB or ERA \u2014 was the payment applied to the wrong patient account, the wrong claim, or held in an unposted batch?",
+      "Auto-posting errors (a mismatched patient ID, a claim number typo) are the most frequent cause of this exact scenario.",
+      "If the payment genuinely can't be located, request a copy of the EOB/ERA and check the payment method (EFT trace number vs. paper check) before escalating to the payer as a lost payment."
+    ]
+  },
+  {
+    "id": "THU-003",
+    "date": "2026-07-23",
+    "readTime": "3 min",
+    "title": "Scenario: same denial code, three different claims \u2014 worth a root-cause review?",
+    "excerpt": "One repeated denial code across unrelated claims is a pattern, not a coincidence. Here's when to escalate it beyond claim-by-claim fixes.",
+    "body": [
+      "If three or more claims from different patients or providers hit the same CARC in a short window, treat it as a process signal, not three separate errors.",
+      "Common root causes: an outdated fee schedule load, a credentialing lapse with a specific payer, or a system-level eligibility check that isn't actually running.",
+      "Fixing the individual claims without investigating the pattern just guarantees the same denial shows up again next week."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'THU'});</script>
+</body>
+</html>
