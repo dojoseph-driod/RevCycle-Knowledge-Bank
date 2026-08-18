@@ -147,8 +147,7 @@
   <section class="newsletter" id="subscribe">
     <div>
       <h3>Get the week's lessons in your inbox</h3>
-      <p>One short breakdown a day. No spam, unsubscribe anytime. (Connect this form to a free
-        tool like Buttondown or Mailchimp when you're ready.)</p>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
     </div>
     <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
       <input type="email" placeholder="you@email.com" required>
@@ -207,7 +206,7 @@ SERIES.forEach((s,i)=>{
     </a>`;
 });
 svgHTML += `<circle cx="${cx}" cy="${cy}" r="${rInner-6}" fill="#16283C" stroke="#28405A"/>
-  <text x="${cx}" y="${cy-6}" text-anchor="middle" class="wheel-center-label">ATLAS</text>
+  <text x="${cx}" y="${cy-6}" text-anchor="middle" class="wheel-center-label">RCM KB</text>
   <text x="${cx}" y="${cy+9}" text-anchor="middle" class="wheel-center-sub">8 KNOWLEDGE</text>
   <text x="${cx}" y="${cy+19}" text-anchor="middle" class="wheel-center-sub">STREAMS</text>`;
 svg.innerHTML = svgHTML;
