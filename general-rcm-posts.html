@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>General RCM Posts | Project Atlas</title>
+<meta name="description" content="General series: evergreen healthcare RCM knowledge and terminology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>:root{--accent:#A78BFA;}</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="day-strip">
+    <a href="monday-regulations.html" class="day-pill ">MON</a>
+    <a href="tuesday-smile-on-every-claim.html" class="day-pill ">TUE</a>
+    <a href="wednesday-carc-codes.html" class="day-pill ">WED</a>
+    <a href="thursday-ar-scenarios.html" class="day-pill ">THU</a>
+    <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
+    <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
+    <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+    <a href="general-rcm-posts.html" class="day-pill current">GEN</a>
+  </div>
+
+  <section class="page-hero">
+    <p class="eyebrow">General Series</p>
+    <h1>General RCM Posts</h1>
+    <p>Evergreen Healthcare RCM knowledge that doesn't belong to one weekday — glossary terms, career notes, software concepts, and foundational ideas you'll come back to.</p>
+  </section>
+
+  <section class="toolbar">
+    <p class="section-title" id="resultsLabel" style="margin:0;">Lessons</p>
+    <div class="search">
+      <span class="mono" style="color:var(--slate); font-size:13px;">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search this series…">
+    </div>
+  </section>
+
+  <div class="grid" id="postGrid"></div>
+
+  <section class="newsletter" id="subscribe">
+    <div>
+      <h3>Get the week's lessons in your inbox</h3>
+      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
+      <input type="email" placeholder="you@email.com" required>
+      <button class="btn primary" type="submit">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="post-detail" id="postDetail"></div>
+</div>
+
+<script>
+const POSTS = [
+  {
+    "id": "GEN-001",
+    "date": "2026-07-27",
+    "readTime": "3 min",
+    "title": "What RCM software is actually doing behind the scenes",
+    "excerpt": "Practice management systems, clearinghouses, and payer portals all talk to each other constantly. Here's the plain-English version of that pipeline.",
+    "body": [
+      "A practice management or EHR system generates the claim, based on the charges entered during charge capture.",
+      "That claim is sent electronically \u2014 usually as an 837 file \u2014 to a <strong>clearinghouse</strong>, which checks it for formatting errors and routes it to the correct payer.",
+      "The payer adjudicates the claim (decides what to pay) and sends back an ERA/EOB, which flows back through the clearinghouse to the practice system, where it's posted to the patient account.",
+      "Understanding this pipeline makes it much easier to guess where a stuck claim is actually stuck \u2014 practice system, clearinghouse, or payer."
+    ]
+  },
+  {
+    "id": "GEN-002",
+    "date": "2026-08-03",
+    "readTime": "2 min",
+    "title": "10 RCM acronyms you'll see every single day",
+    "excerpt": "A quick-reference glossary for anyone new to the field \u2014 the ten acronyms that show up constantly, defined in one line each.",
+    "body": [
+      "<strong>EOB</strong> \u2014 Explanation of Benefits, sent to the patient. <strong>ERA</strong> \u2014 Electronic Remittance Advice, the payer's electronic version sent to the provider.",
+      "<strong>CARC/RARC</strong> \u2014 Claim Adjustment/Remark Reason Codes explaining a payment decision. <strong>CPT/HCPCS</strong> \u2014 codes describing procedures performed. <strong>ICD-10</strong> \u2014 codes describing diagnoses.",
+      "<strong>NPI</strong> \u2014 National Provider Identifier, a provider's unique ID. <strong>EFT</strong> \u2014 Electronic Funds Transfer. <strong>COB</strong> \u2014 Coordination of Benefits, when a patient has more than one insurance plan.",
+      "Keeping this list nearby for the first few months on the job saves a lot of context-switching to look things up."
+    ]
+  },
+  {
+    "id": "GEN-003",
+    "date": "2026-08-10",
+    "readTime": "3 min",
+    "title": "Career paths inside Revenue Cycle Management",
+    "excerpt": "RCM is not one job \u2014 it's a whole department of specialties. Here's a map of where people typically start and where they grow into.",
+    "body": [
+      "Most people enter RCM through <strong>patient access</strong> (scheduling, registration, eligibility) or <strong>medical billing/coding</strong> \u2014 both are common entry points with relatively low barriers to start.",
+      "From there, common growth paths include <strong>AR follow-up and denial management</strong> (deeper problem-solving, often a pay bump), <strong>coding specialization</strong> (certification-driven, e.g. CPC), and <strong>RCM analytics or reporting</strong> (more data-and-systems focused).",
+      "Senior paths include RCM management, compliance/audit roles, and increasingly, RCM systems/implementation roles working directly with the software vendors themselves.",
+      "Knowing this map early helps you choose which skills to build first, instead of specializing accidentally."
+    ]
+  }
+];
+</script>
+<script src="assets/app.js"></script>
+<script>initSeriesPage({posts: POSTS, tag: 'GEN'});</script>
+</body>
+</html>

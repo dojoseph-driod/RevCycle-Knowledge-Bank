@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revenue Cycle Knowledge Bank</title>
+<title>Project Atlas | RCM Knowledge Bank</title>
 <meta name="description" content="A trusted, structured knowledge ecosystem for Healthcare Revenue Cycle Management — from the team building Project Atlas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,6 +32,28 @@
   .not-list{columns:2; gap:24px; color:var(--slate); font-size:14px; margin:0; padding-left:18px;}
   .not-list li{margin-bottom:8px; break-inside:avoid;}
 
+  /* ---------- wheel navigator ---------- */
+  .wheel-section{padding:8px 0 60px; text-align:center;}
+  .wheel-section h2{font-size:26px; margin:0 0 8px;}
+  .wheel-section > p{color:var(--slate); font-size:14.5px; margin:0 0 30px;}
+  .wheel-box{position:relative; display:flex; align-items:center; justify-content:center; margin:0 auto;}
+  svg.wheel{width:100%; max-width:420px; height:auto; overflow:visible;}
+  .seg-link{cursor:pointer; text-decoration:none;}
+  .seg{transition:opacity .2s, filter .2s; opacity:.9; transform-origin:150px 150px;}
+  .seg-link:hover .seg, .seg-link:focus-visible .seg{opacity:1; filter:brightness(1.18);}
+  .seg text{font-family:'IBM Plex Mono',monospace; pointer-events:none;}
+  .wheel-center-label{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; fill:var(--white);}
+  .wheel-center-sub{font-family:'IBM Plex Mono',monospace; font-size:8.5px; fill:var(--slate);}
+  .wheel-legend{
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:640px; margin:34px auto 0;
+  }
+  .wheel-legend a{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; padding:8px 13px; border-radius:999px;
+    border:1px solid var(--line); background:var(--card); color:var(--slate); text-decoration:none; transition:.15s;
+  }
+  .wheel-legend a:hover{color:var(--white); border-color:var(--lc);}
+  .wheel-legend a .sw{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--lc); margin-right:6px;}
+
   @media (max-width:860px){
     .mission-grid{grid-template-columns:1fr;}
     .not-list{columns:1;}
@@ -43,12 +65,12 @@
 
 <header class="site">
   <div class="nav">
-    <a href="index.html" class="brand"><span class="dot"></span> REVENUE CYCLE KNOWLEDGE BANK</a>
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="index.html#week">The Week</a>
       <a href="index.html#subscribe">Subscribe</a>
-      <a href="https://www.linkedin.com/showcase/rcmkbank/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </nav>
   </div>
 </header>
@@ -56,7 +78,7 @@
 <main class="wrap">
 
   <section class="hero">
-    <p class="eyebrow">RCM Knowledge Bank</p>
+    <p class="eyebrow">RCM Knowledge Bank · Internal Codename: Project Atlas</p>
     <h1>Deposit Time.<br><span>Withdraw Knowledge.</span></h1>
     <p class="lead">A trusted, structured knowledge ecosystem for Healthcare Revenue Cycle
       Management — built to turn fragmented RCM knowledge into practical, measurable,
@@ -70,17 +92,17 @@
   <section id="mission" class="mission-grid" style="margin-top:20px;">
     <div class="mission-card">
       <h2>Executive Vision</h2>
-      <p>RCM Knowledge Bank is a trusted, cloud-ready knowledge and learning ecosystem for Healthcare
+      <p>Project Atlas is a trusted, cloud-ready knowledge and learning ecosystem for Healthcare
         Revenue Cycle Management. Its purpose is to transform complex healthcare revenue cycle
         knowledge into something people can learn, understand, practice, apply, measure, and use.</p>
-      <p>RCM KB begins as a rigorous education platform for people entering or advancing in
+      <p>Atlas begins as a rigorous education platform for people entering or advancing in
         Healthcare RCM — and will grow into an ecosystem connecting learners, RCM professionals,
         educators, healthcare organizations, employers, and patients seeking to understand their
         own medical bills.</p>
     </div>
     <div class="mission-card">
       <h2>Mission</h2>
-      <p>RCM Knowledge Bank exists to make Healthcare Revenue Cycle Management knowledge
+      <p>Project Atlas exists to make Healthcare Revenue Cycle Management knowledge
         understandable, practical, trustworthy, and actionable — helping learners build
         real-world skills and careers, helping organizations develop capable RCM professionals,
         and ultimately helping patients better understand and advocate for themselves within the
@@ -95,12 +117,12 @@
   <section class="mission-grid">
     <div class="mission-card">
       <h2>North Star</h2>
-      <p class="north-star">RCM Knowledge Bank exists to turn Healthcare Revenue Cycle Management
+      <p class="north-star">Project Atlas exists to turn Healthcare Revenue Cycle Management
         knowledge into practical, measurable capability — and ultimately use that knowledge to
         empower professionals, organizations, and patients.</p>
     </div>
     <div class="mission-card">
-      <h2>What RCM Knowledge Bank Is Not</h2>
+      <h2>What Atlas Is Not</h2>
       <ul class="not-list">
         <li>Simply a blog</li>
         <li>A collection of LinkedIn posts</li>
@@ -112,46 +134,14 @@
     </div>
   </section>
 
-  <section id="week">
-    <p class="eyebrow">This Week</p>
-    <h2 style="font-size:26px; margin:0 0 24px;">Seven days, seven series</h2>
-    <div class="week-grid">
-      <a href="monday-regulations.html" class="day-card" style="--dc:#5AA8D8;">
-        <span class="dnum">MON</span>
-        <h3>Healthcare Regulations</h3>
-        <p>The laws and rules that shape every claim.</p>
-      </a>
-      <a href="tuesday-smile-on-every-claim.html" class="day-card" style="--dc:#E8B948;">
-        <span class="dnum">TUE</span>
-        <h3>There's a Smile on Every Claim</h3>
-        <p>The human stories behind the paperwork.</p>
-      </a>
-      <a href="wednesday-carc-codes.html" class="day-card" style="--dc:#4FD1AE;">
-        <span class="dnum">WED</span>
-        <h3>ANSI CARC Codes</h3>
-        <p>Denial and adjustment codes, decoded.</p>
-      </a>
-      <a href="thursday-ar-scenarios.html" class="day-card" style="--dc:#E0985A;">
-        <span class="dnum">THU</span>
-        <h3>AR Scenarios</h3>
-        <p>Real accounts receivable situations to work through.</p>
-      </a>
-      <a href="friday-healthcare-foundation.html" class="day-card" style="--dc:#3FC4B8;">
-        <span class="dnum">FRI</span>
-        <h3>Healthcare Foundation</h3>
-        <p>The fundamentals every RCM career is built on.</p>
-      </a>
-      <a href="saturday-dental-rcm.html" class="day-card" style="--dc:#D97F6E;">
-        <span class="dnum">SAT</span>
-        <h3>Dental RCM</h3>
-        <p>Where dental billing overlaps with — and diverges from — medical.</p>
-      </a>
-      <a href="sunday-case-study.html" class="day-card" style="--dc:#8FA3B8;">
-        <span class="dnum">SUN</span>
-        <h3>Case Study</h3>
-        <p>One real scenario, unpacked end to end.</p>
-      </a>
+  <section id="week" class="wheel-section">
+    <p class="eyebrow" style="text-align:left;">Explore</p>
+    <h2>Eight ways into the knowledge bank</h2>
+    <p>Seven daily series, plus general RCM knowledge that doesn't belong to any one day. Click a slice.</p>
+    <div class="wheel-box">
+      <svg class="wheel" viewBox="0 0 300 300" id="wheelSvg" role="img" aria-label="Eight content series, click a slice to open it"></svg>
     </div>
+    <div class="wheel-legend" id="wheelLegend"></div>
   </section>
 
   <section class="newsletter" id="subscribe">
@@ -169,10 +159,63 @@
 </main>
 
 <footer class="wrap">
-  <div>© <span id="year"></span> Revenue Cycle Knowledge Bank.</div>
-  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/showcase/rcmkbank/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- 8-part wheel navigator ---------- */
+const SERIES = [
+  { tag:'MON', label:'Healthcare Regulations',       file:'monday-regulations.html',              color:'#5AA8D8' },
+  { tag:'TUE', label:"Smile on Every Claim",         file:'tuesday-smile-on-every-claim.html',    color:'#E8B948' },
+  { tag:'WED', label:'ANSI CARC Codes',              file:'wednesday-carc-codes.html',            color:'#4FD1AE' },
+  { tag:'THU', label:'AR Scenarios',                 file:'thursday-ar-scenarios.html',           color:'#E0985A' },
+  { tag:'FRI', label:'Healthcare Foundation',        file:'friday-healthcare-foundation.html',    color:'#3FC4B8' },
+  { tag:'SAT', label:'Dental RCM',                   file:'saturday-dental-rcm.html',             color:'#D97F6E' },
+  { tag:'SUN', label:'Case Study',                   file:'sunday-case-study.html',               color:'#8FA3B8' },
+  { tag:'GEN', label:'General RCM Posts',            file:'general-rcm-posts.html',               color:'#A78BFA' },
+];
+
+const svg = document.getElementById('wheelSvg');
+const cx=150, cy=150, rOuter=140, rInner=70;
+const n = SERIES.length;
+const seg = 360/n;
+
+function polar(r, angleDeg){
+  const a = (angleDeg - 90) * Math.PI/180;
+  return [cx + r*Math.cos(a), cy + r*Math.sin(a)];
+}
+function arcPath(rOut, rIn, a0, a1){
+  const [x0,y0]=polar(rOut,a0), [x1,y1]=polar(rOut,a1);
+  const [x2,y2]=polar(rIn,a1), [x3,y3]=polar(rIn,a0);
+  const large = (a1-a0) > 180 ? 1 : 0;
+  return `M ${x0} ${y0} A ${rOut} ${rOut} 0 ${large} 1 ${x1} ${y1} L ${x2} ${y2} A ${rIn} ${rIn} 0 ${large} 0 ${x3} ${y3} Z`;
+}
+
+let svgHTML = '';
+SERIES.forEach((s,i)=>{
+  const a0 = i*seg, a1=(i+1)*seg - 1.6;
+  const path = arcPath(rOuter, rInner, a0, a1);
+  const [lx,ly] = polar((rOuter+rInner)/2, (a0+a1)/2);
+  svgHTML += `<a href="${s.file}" class="seg-link" aria-label="${s.label}">
+      <g class="seg">
+        <path d="${path}" fill="${s.color}"></path>
+        <text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#0F1E2E" font-weight="600">${s.tag}</text>
+      </g>
+    </a>`;
+});
+svgHTML += `<circle cx="${cx}" cy="${cy}" r="${rInner-6}" fill="#16283C" stroke="#28405A"/>
+  <text x="${cx}" y="${cy-6}" text-anchor="middle" class="wheel-center-label">ATLAS</text>
+  <text x="${cx}" y="${cy+9}" text-anchor="middle" class="wheel-center-sub">8 KNOWLEDGE</text>
+  <text x="${cx}" y="${cy+19}" text-anchor="middle" class="wheel-center-sub">STREAMS</text>`;
+svg.innerHTML = svgHTML;
+
+const legend = document.getElementById('wheelLegend');
+legend.innerHTML = SERIES.map(s =>
+  `<a href="${s.file}" style="--lc:${s.color};"><span class="sw"></span>${s.tag} · ${s.label}</a>`
+).join('');
+</script>
 </body>
 </html>
