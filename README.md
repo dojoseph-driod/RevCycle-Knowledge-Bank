@@ -12,7 +12,7 @@ wednesday-carc-codes.html           WED — ANSI CARC Codes
 thursday-ar-scenarios.html          THU — AR Scenarios
 friday-healthcare-foundation.html   FRI — Healthcare Foundation
 saturday-dental-rcm.html            SAT — Dental RCM
-sunday-case-study.html              SUN — Lean Six Signa or Case Study
+sunday-case-study.html              SUN — Case Study
 assets/styles.css                   Shared design system (all pages)
 assets/app.js                       Shared search + post-detail logic
 ```

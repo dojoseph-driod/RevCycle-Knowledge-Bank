@@ -34,6 +34,16 @@
     <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
     <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
     <a href="sunday-case-study.html" class="day-pill current">SUN</a>
+    <a href="general-rcm-posts.html" class="day-pill ">GEN</a>
+  </div>
+
+  <div class="banner">
+    <img src="images/banners/SUN.jpg" alt="Case Study banner" loading="lazy"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="thumb-fallback" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <span>Add images/banners/SUN.jpg for a series banner</span>
+    </div>
   </div>
 
   <section class="page-hero">
@@ -86,7 +96,8 @@ const POSTS = [
       "The billing team initially focused on AR follow-up speed, assuming the issue was on the back end. Denial rate kept climbing.",
       "The actual cause was a scheduling template update that had quietly removed a mandatory 'insurance re-verification' field for returning patients, so eligibility was only being checked for new patients.",
       "Once the field was restored and re-verification was enforced at check-in for every visit, the denial rate returned to baseline within six weeks \u2014 with no change in staffing or billing process at all."
-    ]
+    ],
+    "image": "images/SUN-001.jpg"
   },
   {
     "id": "SUN-002",
@@ -99,7 +110,8 @@ const POSTS = [
       "Rather than hiring, the team segmented the AR by root cause: unworked denials, claims stuck in a clearinghouse rejection queue nobody was monitoring, and a batch of claims for a payer whose portal credentials had quietly expired.",
       "Each segment got a different fix \u2014 a two-week denial sprint, a clearinghouse alert rule, and a credential reset \u2014 rather than one generic 'call more accounts' push.",
       "Within one quarter, the practice recovered roughly $140,000 of the $180,000, and the rest was correctly written off as genuinely uncollectible, which the team hadn't had time to properly triage before."
-    ]
+    ],
+    "image": "images/SUN-002.jpg"
   },
   {
     "id": "SUN-003",
@@ -112,7 +124,8 @@ const POSTS = [
       "Its net collection rate, however, was sitting at 78% \u2014 well below the 95%+ benchmark for a well-run practice \u2014 and no one had connected the two facts.",
       "The gap wasn't compliance. It was operational: slow charge entry, a two-week lag before claims were even submitted, and no formal denial-tracking process at all.",
       "The lesson the team took away: passing an audit confirms you're following the rules. It says nothing about whether you're actually collecting what you're owed."
-    ]
+    ],
+    "image": "images/SUN-003.jpg"
   }
 ];
 </script>

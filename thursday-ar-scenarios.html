@@ -34,6 +34,16 @@
     <a href="friday-healthcare-foundation.html" class="day-pill ">FRI</a>
     <a href="saturday-dental-rcm.html" class="day-pill ">SAT</a>
     <a href="sunday-case-study.html" class="day-pill ">SUN</a>
+    <a href="general-rcm-posts.html" class="day-pill ">GEN</a>
+  </div>
+
+  <div class="banner">
+    <img src="images/banners/THU.jpg" alt="AR Scenarios banner" loading="lazy"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="thumb-fallback" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <span>Add images/banners/THU.jpg for a series banner</span>
+    </div>
   </div>
 
   <section class="page-hero">
@@ -85,7 +95,8 @@ const POSTS = [
       "First check: was the claim ever acknowledged by the payer? If there's no clearinghouse acceptance record, the problem might be a submission failure, not a slow payer.",
       "Second check: is there a denial on file that never got worked? Pull the remit. An unworked denial sitting silently is a completely different problem than a claim still in adjudication.",
       "Third check: if it's genuinely still pending with no denial and no rejection, that's when a payer status call or portal check is the right next move \u2014 not before."
-    ]
+    ],
+    "image": "images/THU-001.jpg"
   },
   {
     "id": "THU-002",
@@ -97,7 +108,8 @@ const POSTS = [
       "Start with the EOB or ERA \u2014 was the payment applied to the wrong patient account, the wrong claim, or held in an unposted batch?",
       "Auto-posting errors (a mismatched patient ID, a claim number typo) are the most frequent cause of this exact scenario.",
       "If the payment genuinely can't be located, request a copy of the EOB/ERA and check the payment method (EFT trace number vs. paper check) before escalating to the payer as a lost payment."
-    ]
+    ],
+    "image": "images/THU-002.jpg"
   },
   {
     "id": "THU-003",
@@ -109,7 +121,8 @@ const POSTS = [
       "If three or more claims from different patients or providers hit the same CARC in a short window, treat it as a process signal, not three separate errors.",
       "Common root causes: an outdated fee schedule load, a credentialing lapse with a specific payer, or a system-level eligibility check that isn't actually running.",
       "Fixing the individual claims without investigating the pattern just guarantees the same denial shows up again next week."
-    ]
+    ],
+    "image": "images/THU-003.jpg"
   }
 ];
 </script>

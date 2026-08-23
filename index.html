@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revenue Cycle Knowledge Bank</title>
-<meta name="description" content="A trusted, structured knowledge ecosystem for Healthcare Revenue Cycle Management.">
+<title>Project Atlas | RCM Knowledge Bank</title>
+<meta name="description" content="A trusted, structured knowledge ecosystem for Healthcare Revenue Cycle Management — from the team building Project Atlas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -39,8 +39,15 @@
   .wheel-box{position:relative; display:flex; align-items:center; justify-content:center; margin:0 auto;}
   svg.wheel{width:100%; max-width:420px; height:auto; overflow:visible;}
   .seg-link{cursor:pointer; text-decoration:none;}
-  .seg{transition:opacity .2s, filter .2s; opacity:.9; transform-origin:150px 150px;}
-  .seg-link:hover .seg, .seg-link:focus-visible .seg{opacity:1; filter:brightness(1.18);}
+  .seg{transition:opacity .2s ease, filter .2s ease, transform .2s ease; opacity:.9; transform-origin:150px 150px;}
+  .seg-link:hover .seg, .seg-link:focus-visible .seg{opacity:1; filter:brightness(1.18); transform:scale(1.035);}
+  .seg-link:active .seg{transform:scale(.98);}
+
+  .mission-card, .day-pill{opacity:0; transform:translateY(14px);}
+  .mission-card.in, .day-pill.in{opacity:1; transform:translateY(0); transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.3,1);}
+  @media (prefers-reduced-motion:reduce){
+    .mission-card, .day-pill{opacity:1 !important; transform:none !important;}
+  }
   .seg text{font-family:'IBM Plex Mono',monospace; pointer-events:none;}
   .wheel-center-label{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; fill:var(--white);}
   .wheel-center-sub{font-family:'IBM Plex Mono',monospace; font-size:8.5px; fill:var(--slate);}
@@ -65,20 +72,29 @@
 
 <header class="site">
   <div class="nav">
-    <a href="index.html" class="brand"><span class="dot"></span> REVENUE CYCLE KNOWLEDGE BANK</a>
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="index.html#week">The Week</a>
       <a href="index.html#subscribe">Subscribe</a>
-      <a href="https://www.linkedin.com/showcase/rcmkbank/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
 
+  <div class="banner" style="margin-top:24px;">
+    <img src="images/home-banner.jpg" alt="Project Atlas banner"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="thumb-fallback" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <span>Add images/home-banner.jpg for a custom header image</span>
+    </div>
+  </div>
+
   <section class="hero">
-    <p class="eyebrow">RCM Knowledge Bank</p>
+    <p class="eyebrow">RCM Knowledge Bank · Internal Codename: Project Atlas</p>
     <h1>Deposit Time.<br><span>Withdraw Knowledge.</span></h1>
     <p class="lead">A trusted, structured knowledge ecosystem for Healthcare Revenue Cycle
       Management — built to turn fragmented RCM knowledge into practical, measurable,
@@ -92,17 +108,17 @@
   <section id="mission" class="mission-grid" style="margin-top:20px;">
     <div class="mission-card">
       <h2>Executive Vision</h2>
-      <p>RCM Knowledge Bank is a trusted, cloud-ready knowledge and learning ecosystem for Healthcare
+      <p>Project Atlas is a trusted, cloud-ready knowledge and learning ecosystem for Healthcare
         Revenue Cycle Management. Its purpose is to transform complex healthcare revenue cycle
         knowledge into something people can learn, understand, practice, apply, measure, and use.</p>
-      <p>RCM Knowledge Bank begins as a rigorous education platform for people entering or advancing in
+      <p>Atlas begins as a rigorous education platform for people entering or advancing in
         Healthcare RCM — and will grow into an ecosystem connecting learners, RCM professionals,
         educators, healthcare organizations, employers, and patients seeking to understand their
         own medical bills.</p>
     </div>
     <div class="mission-card">
       <h2>Mission</h2>
-      <p>RCM Knowledge Bank exists to make Healthcare Revenue Cycle Management knowledge
+      <p>Project Atlas exists to make Healthcare Revenue Cycle Management knowledge
         understandable, practical, trustworthy, and actionable — helping learners build
         real-world skills and careers, helping organizations develop capable RCM professionals,
         and ultimately helping patients better understand and advocate for themselves within the
@@ -117,12 +133,12 @@
   <section class="mission-grid">
     <div class="mission-card">
       <h2>North Star</h2>
-      <p class="north-star">RCM Knowledge Bank exists to turn Healthcare Revenue Cycle Management
+      <p class="north-star">Project Atlas exists to turn Healthcare Revenue Cycle Management
         knowledge into practical, measurable capability — and ultimately use that knowledge to
         empower professionals, organizations, and patients.</p>
     </div>
     <div class="mission-card">
-      <h2>What RCM KB Is Not</h2>
+      <h2>What Atlas Is Not</h2>
       <ul class="not-list">
         <li>Simply a blog</li>
         <li>A collection of LinkedIn posts</li>
@@ -136,7 +152,7 @@
 
   <section id="week" class="wheel-section">
     <p class="eyebrow" style="text-align:left;">Explore</p>
-    <h2>The Loop of Eternity into the knowledge bank</h2>
+    <h2>Eight ways into the knowledge bank</h2>
     <p>Seven daily series, plus general RCM knowledge that doesn't belong to any one day. Click a slice.</p>
     <div class="wheel-box">
       <svg class="wheel" viewBox="0 0 300 300" id="wheelSvg" role="img" aria-label="Eight content series, click a slice to open it"></svg>
@@ -147,7 +163,8 @@
   <section class="newsletter" id="subscribe">
     <div>
       <h3>Get the week's lessons in your inbox</h3>
-      <p>One short breakdown a day. No spam, unsubscribe anytime.</p>
+      <p>One short breakdown a day. No spam, unsubscribe anytime. (Connect this form to a free
+        tool like Buttondown or Mailchimp when you're ready.)</p>
     </div>
     <form onsubmit="event.preventDefault(); alert('Hook this up to a free email tool like Buttondown or Mailchimp — see the README.'); this.reset();">
       <input type="email" placeholder="you@email.com" required>
@@ -158,8 +175,8 @@
 </main>
 
 <footer class="wrap">
-  <div>© <span id="year"></span> RCM Knowledge Bank.</div>
-  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/showcase/rcmkbank/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
 </footer>
 
 <script>
@@ -206,15 +223,31 @@ SERIES.forEach((s,i)=>{
     </a>`;
 });
 svgHTML += `<circle cx="${cx}" cy="${cy}" r="${rInner-6}" fill="#16283C" stroke="#28405A"/>
-  <text x="${cx}" y="${cy-6}" text-anchor="middle" class="wheel-center-label">RCM KB</text>
+  <text x="${cx}" y="${cy-6}" text-anchor="middle" class="wheel-center-label">ATLAS</text>
   <text x="${cx}" y="${cy+9}" text-anchor="middle" class="wheel-center-sub">8 KNOWLEDGE</text>
   <text x="${cx}" y="${cy+19}" text-anchor="middle" class="wheel-center-sub">STREAMS</text>`;
 svg.innerHTML = svgHTML;
 
 const legend = document.getElementById('wheelLegend');
 legend.innerHTML = SERIES.map(s =>
-  `<a href="${s.file}" style="--lc:${s.color};"><span class="sw"></span>${s.tag} · ${s.label}</a>`
+  `<a href="${s.file}" style="--lc:${s.color};" class="day-pill"><span class="sw"></span>${s.tag} · ${s.label}</a>`
 ).join('');
+
+/* ---------- scroll-reveal for mission cards + legend pills ---------- */
+const revealTargets = document.querySelectorAll('.mission-card, .day-pill');
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((entry, i)=>{
+      if(entry.isIntersecting){
+        setTimeout(()=> entry.target.classList.add('in'), i * 45);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealTargets.forEach(el => io.observe(el));
+} else {
+  revealTargets.forEach(el => el.classList.add('in'));
+}
 </script>
 </body>
 </html>
