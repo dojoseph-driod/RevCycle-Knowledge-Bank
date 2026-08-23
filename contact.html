@@ -55,7 +55,7 @@
     </div>
 
     <div class="form-card">
-      <form id="contactForm">
+      <form id="contactForm" action="https://formspree.io/f/mqpzoqda" method="POST">
         <div class="field-group">
           <label for="cf-name">Name</label>
           <input type="text" id="cf-name" name="name" required>
@@ -110,16 +110,15 @@ chips.forEach(chip=>{
 
 const form = document.getElementById('contactForm');
 const success = document.getElementById('formSuccess');
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  /* Placeholder behavior — replace this whole listener's body with a real
-     fetch()/action submit once you connect Formspree, Web3Forms, etc. */
-  success.classList.add('show');
-  form.reset();
-  chips.forEach(c=> c.classList.remove('active'));
-  chips[0].classList.add('active');
-  topicField.value = 'General';
-});
+form.addEventListener('submit', 
+  async function(e){ e.preventDefault(); 
+    const data = new FormData(form); 
+    try { const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } }); 
+      if(res.ok){ success.classList.add('show'); 
+                 form.reset(); 
+                 chips.forEach(c => c.classList.remove('active')); 
+                 chips[0].classList.add('active'); 
+                 topicField.value = 'General'; } else { alert('Something went wrong — please try again or email directly.'); } } catch(err) { alert('Network error — please try again.'); } });
 </script>
 </body>
 </html>
