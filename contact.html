@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Project Atlas</title>
+<meta name="description" content="Ask an RCM question or send feedback to Project Atlas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  :root{--accent:#4FD1AE;}
+  .contact-wrap{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; padding:10px 0 60px;}
+  .contact-side h1{font-size:32px; margin:0 0 14px; line-height:1.15;}
+  .contact-side p.lead{color:var(--slate); font-size:15.5px; margin:0 0 24px; max-width:44ch;}
+  .contact-perks{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;}
+  .contact-perks li{
+    display:flex; gap:10px; align-items:flex-start; font-size:13.5px; color:#D6DEE6;
+  }
+  .contact-perks li::before{content:'—'; color:var(--mint); font-family:'IBM Plex Mono',monospace;}
+  @media (max-width:860px){
+    .contact-wrap{grid-template-columns:1fr;}
+    .form-card{max-width:100%; padding:26px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="dot"></span> Project Atlas</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#week">The Week</a>
+      <a href="index.html#subscribe">Subscribe</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="contact-wrap">
+    <div class="contact-side">
+      <p class="eyebrow">Get in Touch</p>
+      <h1>Have an RCM question?<br>Ask it here.</h1>
+      <p class="lead">Stuck on a denial code, curious about a scenario, or want a topic covered
+        in an upcoming series? Send it over — real questions often become real lessons.</p>
+      <ul class="contact-perks">
+        <li>Every question is read personally, not routed through a bot.</li>
+        <li>Good questions get turned into future posts (with your permission).</li>
+        <li>No question is too basic — the Friday Foundation series exists because of questions like yours.</li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <form id="contactForm">
+        <div class="field-group">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" required>
+        </div>
+        <div class="field-group">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" required>
+        </div>
+        <div class="field-group">
+          <label>What's this about?</label>
+          <div class="chip-row" id="topicChips">
+            <button type="button" class="chip active" data-topic="General">General</button>
+            <button type="button" class="chip" data-topic="Regulations">Regulations</button>
+            <button type="button" class="chip" data-topic="Smile on Every Claim">Smile on Every Claim</button>
+            <button type="button" class="chip" data-topic="CARC Codes">CARC Codes</button>
+            <button type="button" class="chip" data-topic="AR Scenarios">AR Scenarios</button>
+            <button type="button" class="chip" data-topic="Foundation">Foundation</button>
+            <button type="button" class="chip" data-topic="Dental RCM">Dental RCM</button>
+            <button type="button" class="chip" data-topic="Case Study">Case Study</button>
+          </div>
+          <input type="hidden" id="cf-topic" name="topic" value="General">
+        </div>
+        <div class="field-group">
+          <label for="cf-message">Your question</label>
+          <textarea id="cf-message" name="message" rows="5" required placeholder="e.g. What's the difference between CO-16 and CO-45?"></textarea>
+        </div>
+        <button type="submit" class="btn primary" style="width:100%; justify-content:center;">Send question</button>
+        <p class="form-note">This form is a working placeholder — see the README to connect it to a free service like Formspree so submissions actually reach your inbox.</p>
+        <div class="form-success" id="formSuccess">✓ Thanks — your question was captured. (Connect a form backend to start receiving these by email.)</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>© <span id="year"></span> Project Atlas — RCM Knowledge Bank.</div>
+  <div>Built from LinkedIn posts · <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a></div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const chips = document.querySelectorAll('#topicChips .chip');
+const topicField = document.getElementById('cf-topic');
+chips.forEach(chip=>{
+  chip.addEventListener('click', ()=>{
+    chips.forEach(c=> c.classList.remove('active'));
+    chip.classList.add('active');
+    topicField.value = chip.dataset.topic;
+  });
+});
+
+const form = document.getElementById('contactForm');
+const success = document.getElementById('formSuccess');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  /* Placeholder behavior — replace this whole listener's body with a real
+     fetch()/action submit once you connect Formspree, Web3Forms, etc. */
+  success.classList.add('show');
+  form.reset();
+  chips.forEach(c=> c.classList.remove('active'));
+  chips[0].classList.add('active');
+  topicField.value = 'General';
+});
+</script>
+</body>
+</html>
