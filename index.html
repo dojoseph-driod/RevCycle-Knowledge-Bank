@@ -37,6 +37,53 @@
   .wheel-section h2{font-size:26px; margin:0 0 8px;}
   .wheel-section > p{color:var(--slate); font-size:14.5px; margin:0 0 30px;}
   .wheel-box{position:relative; display:flex; align-items:center; justify-content:center; margin:0 auto;}
+
+  .wheel-flex{display:flex; gap:44px; align-items:center; justify-content:center; flex-wrap:wrap;}
+  .wheel-stage{position:relative; width:100%; max-width:440px; aspect-ratio:1/1; margin:0 auto; flex-shrink:0;}
+  .wheel-stage svg.wheel{position:absolute; inset:14%; width:72%; height:72%; overflow:visible;}
+
+  .ring-icon{
+    position:absolute; width:15%; aspect-ratio:1/1; transform:translate(-50%,-50%);
+    text-decoration:none; cursor:pointer;
+  }
+  .ring-icon-inner{
+    width:100%; height:100%; border-radius:50%; overflow:hidden; position:relative;
+    border:2px solid var(--line); background:var(--card); display:flex; align-items:center; justify-content:center;
+    transition:border-radius .4s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, transform .25s ease, border-color .25s ease;
+  }
+  .ring-icon-inner img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0;}
+  .ring-icon-fallback{font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--slate); letter-spacing:.04em; z-index:1;}
+  .ring-icon:hover .ring-icon-inner, .ring-icon:focus-visible .ring-icon-inner{
+    border-radius:32% 68% 66% 34% / 34% 30% 70% 66%;
+    transform:scale(1.16);
+    border-color:var(--ic);
+    box-shadow:0 0 0 1px var(--ic), 0 0 20px 4px var(--ic), 0 0 38px 12px color-mix(in srgb, var(--ic) 45%, transparent);
+  }
+  .ring-icon:hover .ring-icon-fallback, .ring-icon:focus-visible .ring-icon-fallback{color:var(--white);}
+
+  .wheel-preview{
+    width:280px; max-width:100%; aspect-ratio:4/3; border-radius:14px; overflow:hidden; position:relative;
+    background:var(--card); border:1px solid var(--line); flex-shrink:0;
+  }
+  .wheel-preview img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0; opacity:0; transition:opacity .35s ease;}
+  .wheel-preview-fallback{
+    position:absolute; inset:0; display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:center;
+    background:linear-gradient(150deg, rgba(79,209,174,.14), var(--card)); text-align:center; padding:0 22px;
+  }
+  .wheel-preview-fallback svg{width:26px; height:26px; opacity:.5;}
+  .wheel-preview-fallback span{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--slate);}
+  .wheel-preview-caption{
+    position:absolute; left:0; right:0; bottom:0; padding:12px 16px;
+    background:linear-gradient(0deg, rgba(8,15,24,.9), transparent);
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--white); text-align:left;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ring-icon-inner{transition:none;}
+    .wheel-preview img{transition:none;}
+  }
+  @media (max-width:560px){
+    .wheel-preview{width:100%;}
+  }
   svg.wheel{width:100%; max-width:420px; height:auto; overflow:visible;}
   .seg-link{cursor:pointer; text-decoration:none;}
   .seg{transition:opacity .2s ease, filter .2s ease, transform .2s ease; opacity:.9; transform-origin:150px 150px;}
@@ -154,9 +201,20 @@
   <section id="week" class="wheel-section">
     <p class="eyebrow" style="text-align:left;">Explore</p>
     <h2>Eight ways into the knowledge bank</h2>
-    <p>Seven daily series, plus general RCM knowledge that doesn't belong to any one day. Click a slice.</p>
-    <div class="wheel-box">
-      <svg class="wheel" viewBox="0 0 300 300" id="wheelSvg" role="img" aria-label="Eight content series, click a slice to open it"></svg>
+    <p>Seven daily series, plus general RCM knowledge that doesn't belong to any one day. Hover a slice or icon to preview it, click to open.</p>
+    <div class="wheel-flex">
+      <div class="wheel-stage" id="wheelStage">
+        <svg class="wheel" viewBox="0 0 300 300" id="wheelSvg" role="img" aria-label="Eight content series, click a slice to open it"></svg>
+        <!-- ring icons injected by JS -->
+      </div>
+      <div class="wheel-preview" id="wheelPreview">
+        <img id="wheelPreviewImg" src="" alt="">
+        <div class="wheel-preview-fallback" id="wheelPreviewFallback">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span id="wheelPreviewHint">Hover a slice or icon to preview its series</span>
+        </div>
+        <div class="wheel-preview-caption" id="wheelPreviewCaption" style="display:none;"></div>
+      </div>
     </div>
     <div class="wheel-legend" id="wheelLegend"></div>
   </section>
@@ -229,10 +287,73 @@ svgHTML += `<circle cx="${cx}" cy="${cy}" r="${rInner-6}" fill="#16283C" stroke=
   <text x="${cx}" y="${cy+19}" text-anchor="middle" class="wheel-center-sub">STREAMS</text>`;
 svg.innerHTML = svgHTML;
 
+/* ---------- ring icons around the wheel ---------- */
+const stage = document.getElementById('wheelStage');
+const ringR = 44; /* percent from center */
+SERIES.forEach((s,i)=>{
+  const a0 = i*seg, a1=(i+1)*seg - 1.6;
+  const mid = (a0+a1)/2;
+  const rad = (mid - 90) * Math.PI/180;
+  const x = 50 + ringR * Math.cos(rad);
+  const y = 50 + ringR * Math.sin(rad);
+  const icon = document.createElement('a');
+  icon.href = s.file;
+  icon.className = 'ring-icon';
+  icon.style.left = x + '%';
+  icon.style.top = y + '%';
+  icon.style.setProperty('--ic', s.color);
+  icon.setAttribute('aria-label', s.label);
+  icon.innerHTML = `
+    <span class="ring-icon-inner">
+      <img src="images/banners/${s.tag}.jpg" alt="" loading="lazy"
+           onerror="this.style.display='none';">
+      <span class="ring-icon-fallback">${s.tag}</span>
+    </span>`;
+  icon.addEventListener('mouseenter', ()=> updatePreview(s));
+  icon.addEventListener('focus', ()=> updatePreview(s));
+  stage.appendChild(icon);
+});
+
+/* also preview on wheel-slice hover, not just the ring icons */
+document.querySelectorAll('.seg-link').forEach((link, i)=>{
+  link.addEventListener('mouseenter', ()=> updatePreview(SERIES[i]));
+  link.addEventListener('focus', ()=> updatePreview(SERIES[i]));
+});
+
+/* ---------- preview panel ---------- */
+const previewImg = document.getElementById('wheelPreviewImg');
+const previewFallback = document.getElementById('wheelPreviewFallback');
+const previewHint = document.getElementById('wheelPreviewHint');
+const previewCaption = document.getElementById('wheelPreviewCaption');
+
+function updatePreview(s){
+  const src = `images/banners/${s.tag}.jpg`;
+  const tester = new Image();
+  tester.onload = () => {
+    previewImg.src = src;
+    previewImg.style.opacity = 1;
+    previewFallback.style.display = 'none';
+  };
+  tester.onerror = () => {
+    previewImg.style.opacity = 0;
+    previewFallback.style.display = 'flex';
+    previewHint.textContent = `Add images/banners/${s.tag}.jpg to preview ${s.label}`;
+  };
+  tester.src = src;
+  previewCaption.textContent = `${s.tag} · ${s.label}`;
+  previewCaption.style.display = 'block';
+}
+
 const legend = document.getElementById('wheelLegend');
 legend.innerHTML = SERIES.map(s =>
-  `<a href="${s.file}" style="--lc:${s.color};" class="day-pill"><span class="sw"></span>${s.tag} · ${s.label}</a>`
+  `<a href="${s.file}" style="--lc:${s.color};" class="day-pill"></a>`
 ).join('');
+document.querySelectorAll('.wheel-legend a').forEach((a, i)=>{
+  const s = SERIES[i];
+  a.innerHTML = `<span class="sw"></span>${s.tag} · ${s.label}`;
+  a.addEventListener('mouseenter', ()=> updatePreview(s));
+  a.addEventListener('focus', ()=> updatePreview(s));
+});
 
 /* ---------- scroll-reveal for mission cards + legend pills ---------- */
 const revealTargets = document.querySelectorAll('.mission-card, .day-pill');
