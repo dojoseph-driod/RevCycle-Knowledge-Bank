@@ -120,7 +120,7 @@ header.site{
 }
 .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
 .thumb-fallback{
-  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:absolute; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center;
   gap:6px; background:linear-gradient(150deg, color-mix(in srgb, var(--accent) 22%, var(--card)), var(--card));
 }
 .thumb-fallback svg{width:26px; height:26px; opacity:.55;}
