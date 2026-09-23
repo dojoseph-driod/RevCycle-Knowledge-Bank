@@ -99,7 +99,7 @@ const POSTS = [
 "✓ CARC 16 – Missing Information",
 "A behavioral health clinic faced repeated denials because documentation was incomplete. By pairing CARC 16 with its RARC explanation, the team identified missing prior authorization numbers. Fixing workflows recovered 90% of claims within 30 days.",
 "✓ CARC 50 – Medical Necessity",
-"A physical therapy practice saw denials for “not medically necessary.” With peer-to-peer reviews and stronger clinical documentation, they overturned 78% of appeals. Lesson: CARC 50 isn’t the end — it’s an invitation to prove necessity.",
+"A physical therapy practice saw denials for (not medically necessary). With peer-to-peer reviews and stronger clinical documentation, they overturned 78% of appeals. Lesson: CARC 50 isn’t the end — it’s an invitation to prove necessity.",
 "✓ CARC 18 – Duplicate Claim",
 "An emergency medicine group was hit with duplicate claim denials. By using modifiers (76, 77, 59) correctly, they distinguished legitimate services from duplicates. Result: duplicate denials dropped by 80% in one quarter.",
 "Takeaway:",
@@ -411,56 +411,102 @@ const POSTS = [
     "image": "images/RKB-CARC-007.jpg"
   },
   {
-    "id": "WED-003",
-    "date": "2026-07-22",
+    "id": "RKB-CARC-008",
+    "date": "2026-07-23",
     "readTime": "3 min",
-    "title": "CO-50 and CO-96: medical necessity vs. 'non-covered', explained side by side",
-    "excerpt": "Both codes can feel like a dead end. One usually has an appeal path. The other usually doesn't.",
+    "title": "Every denial tells a story. The key is understanding why the payer reduced or denied payment before taking corrective action.",
+    "excerpt": "Let's decode CO-56 to CO-60.",
     "body": [
-      "CO-50 means the service was denied as 'not medically necessary' according to the payer's coverage policy for that diagnosis.",
-      "CO-96 means the service is simply non-covered under the patient's plan \u2014 often regardless of medical necessity.",
-      "A CO-50 denial is often appealable with additional clinical documentation. A CO-96 denial usually is not, because the issue is plan design, not clinical justification \u2014 appealing it wastes time that could go toward a winnable case."
+"Every denial tells a story. The key is understanding why the payer reduced or denied payment before taking corrective action.",
+"Let's decode CO-56 to CO-60.",
+"🔹 CO-56 – Procedure/Treatment Not Proven Effective",
+"The payer considers the service, procedure, or drug not sufficiently proven to be effective under its medical policy.",
+"Prevention: Verify payer medical policy, obtain prior authorization when required, and include strong clinical documentation.",
+"🔹 CO-57 – Payment Denied Based on Prior Payment",
+"The service has already been paid or adjusted under another claim or payment.",
+"Prevention: Check previous remittance advice, avoid duplicate billing, and verify claim history before rebilling.",
+"🔹 CO-58 – Inappropriate Place of Service",
+"The payer determined the treatment was performed in an invalid or inappropriate place of service.",
+"Prevention: Verify POS coding, payer coverage rules, and site-of-service requirements before claim submission.",
+"🔹 CO-59 – Multiple/Concurrent Procedure Rules",
+"Payment was reduced because multiple procedures were billed during the same encounter.",
+"Prevention: Review NCCI edits, modifier usage, and payer multiple-procedure reduction policies.",
+"🔹 CO-60 – Outpatient Service Included in Inpatient Stay",
+"Outpatient services performed within the payer's defined timeframe before or after an inpatient admission are not separately payable.",
+"Prevention: Understand admission windows, bundling rules, and facility billing guidelines.",
+"💡 RCM Tip: Most of these denials can be prevented through strong front-end validation, correct coding, payer policy awareness, and effective claim editing before submission."
     ],
-    "image": "images/WED-003.jpg"
+    "image": "images/RKB-CARC-008.jpg"
   },
    {
-    "id": "WED-001",
-    "date": "2026-07-08",
-    "readTime": "2 min",
-    "title": "CARC vs. RARC: two codes on the same remit, two different jobs",
-    "excerpt": "They show up on the same remittance advice, but a CARC and a RARC are not interchangeable \u2014 and mixing them up leads to the wrong fix.",
-    "body": [
-      "A CARC (Claim Adjustment Reason Code) explains <strong>why</strong> a claim line was paid differently than billed \u2014 reduced, denied, or adjusted.",
-      "A RARC (Remittance Advice Remark Code) adds <strong>additional detail</strong> to that explanation \u2014 supplementary context the CARC alone doesn't capture.",
-      "Reading only the CARC and ignoring the RARC is one of the most common reasons AR teams misroute a denial to the wrong queue."
-    ],
-    "image": "images/WED-001.jpg"
-  },
-  {
-    "id": "WED-002",
-    "date": "2026-07-15",
-    "readTime": "2 min",
-    "title": "CO-45: the code that isn't actually a denial",
-    "excerpt": "CO-45 shows up constantly on remits and gets treated like a problem \u2014 but it's usually just the contract working as intended.",
-    "body": [
-      "CO-45 means 'charge exceeds fee schedule/maximum allowable' \u2014 the difference between what was billed and what the payer contract allows.",
-      "In most in-network scenarios, this is a normal contractual adjustment, not an error. The provider agreed to accept the allowed amount as payment in full for that line.",
-      "The code becomes worth investigating only when the adjustment amount looks larger than the contracted rate should produce \u2014 that's a fee schedule or contract-loading issue, not a coding issue."
-    ],
-    "image": "images/WED-002.jpg"
-  },
-  {
-    "id": "WED-003",
-    "date": "2026-07-22",
+    "id": "RKB-CARC-009",
+    "date": "2026-07-28",
     "readTime": "3 min",
-    "title": "CO-50 and CO-96: medical necessity vs. 'non-covered', explained side by side",
-    "excerpt": "Both codes can feel like a dead end. One usually has an appeal path. The other usually doesn't.",
+    "title": "Understanding denial codes is one of the fastest ways to improve claim resolution and reduce unnecessary rework.",
+    "excerpt": "Let's explore CARC CO-61 to CO-65.",
     "body": [
-      "CO-50 means the service was denied as 'not medically necessary' according to the payer's coverage policy for that diagnosis.",
-      "CO-96 means the service is simply non-covered under the patient's plan \u2014 often regardless of medical necessity.",
-      "A CO-50 denial is often appealable with additional clinical documentation. A CO-96 denial usually is not, because the issue is plan design, not clinical justification \u2014 appealing it wastes time that could go toward a winnable case."
+"Understanding denial codes is one of the fastest ways to improve claim resolution and reduce unnecessary rework.",
+"Let's explore CARC CO-61 to CO-65.",
+"🔹 CO-61 – Penalty for failure to obtain a second surgical opinion when required.",
+"🔹 CO-62 – Payment denied or reduced because the service was not deemed medically necessary.",
+"🔹 CO-63 – Payment adjusted because treatment was considered to have reached maximum benefit under the patient's plan.",
+"🔹 CO-64 – Claim adjusted because the service was not covered under the patient's current benefit plan.",
+"🔹 CO-65 – Procedure code or diagnosis is inconsistent with the patient's age.",
+"💡 Key Takeaways",
+"✅ Verify payer policies before scheduling services.",
+"✅ Confirm medical necessity and maintain supporting documentation.",
+"✅ Check benefit limitations and coverage before treatment.",
+"✅ Validate patient demographics, especially age-dependent services.",
+"✅ Review coding accuracy before claim submission.",
+"Every denial code tells a story. The more you understand the reason behind it, the faster you can identify the correct resolution and prevent future denials."
     ],
-    "image": "images/WED-003.jpg"
+    "image": "images/RKB-CARC-009.jpg"
+  },
+  {
+    "id": "RKB-CARC-010",
+    "date": "2026-07-31",
+    "readTime": "3 min",
+    "title": "Understanding denial codes helps transform claim denials into learning opportunities.",
+    "excerpt": "Let's explore CARC CO-66 to CO-70.",
+    "body": [
+"Understanding denial codes helps transform claim denials into learning opportunities. Let's explore CARC CO-66 to CO-70.",
+"🔹 CO-66 – Blood deductible applies. Payment has been reduced because the patient's blood deductible or related cost-sharing responsibility applies.",
+"🔹 CO-67 – Lifetime reserve days have been exhausted. Additional inpatient days are no longer covered under the patient's available lifetime reserve benefits.",
+"🔹 CO-68 – Prior payment reflects a lifetime maximum benefit has been reached. The patient's plan has reached its maximum payable benefit for the covered service.",
+"🔹 CO-69 – Day outlier payment adjustment. Payment has been adjusted based on payer rules for day outlier calculations.",
+"🔹 CO-70 – Cost outlier payment adjustment. Payment has been adjusted according to the payer's cost outlier methodology.",
+"💡 RCM Tips",
+"✅ Verify the patient's benefit limits before providing services whenever possible.",
+"✅ Review payer-specific policies for inpatient benefits, blood deductibles, and outlier payment methodologies.",
+"✅ Educate patients on benefit limitations to reduce unexpected balances.",
+"✅ Carefully review the Explanation of Benefits (EOB) or Electronic Remittance Advice (ERA) to determine whether the adjustment is contractual, patient responsibility, or requires additional follow-up."
+    ],
+    "image": "images/RKB-CARC-010.jpg"
+  },
+  {
+    "id": "RKB-CARC-011",
+    "date": "2026-08-05",
+    "readTime": "3 min",
+    "title": "CARC Codes 71–75 (Historical & Institutional Payment Adjustments)",
+    "excerpt": "Not every CARC code you encounter represents a denial. Some describe payment adjustments, especially in Medicare institutional reimbursement.",
+    "body": [
+"🏦 Deposit 2 minutes. Withdraw knowledge for a lifetime.",
+"Not every CARC code you encounter represents a denial. Some describe payment adjustments, especially in Medicare institutional reimbursement.",
+"Let's decode today's five codes:",
+"🔹 CARC 71 – Primary Payer Amount (Historical / Deactivated)",
+"Originally used to identify the primary payer amount. This code has been retired, and CARC 23 is used instead.",
+"🔹 CARC 72 – Coinsurance Day (Historical / Deactivated)",
+"Previously represented coinsurance days for institutional claims. Modern electronic remittances communicate this through quantity segments instead of this CARC.",
+"🔹 CARC 73 – Administrative Days (Historical / Deactivated)",
+"Once used for administrative days in inpatient billing but has since been retired from active use.",
+"🔹 CARC 74 – Indirect Medical Education (IME) Adjustment",
+"Applied to Medicare hospital payments to account for the higher costs of teaching hospitals that train medical residents.",
+"🔹 CARC 75 – Direct Medical Education (DME) Adjustment",
+"Represents Medicare payment adjustments supporting the direct costs of graduate medical education programs.",
+"💡 RCM Insight",
+"Understanding older CARC codes is valuable because legacy ERAs, historical remittance files, and payer archives may still contain them. Experienced analysts know when a code reflects a current workflow versus historical payment logic."
+    ],
+    "image": "images/RKB-CARC-011.jpg"
   },
    {
     "id": "WED-001",
