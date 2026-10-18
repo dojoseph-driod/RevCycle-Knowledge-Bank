@@ -3,393 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revenue Cycle Knowledge Bank | Learn. Understand. Apply.</title>
-<meta name="description" content="Practical, foundation-first learning for US Healthcare Revenue Cycle Management.">
+<title>Revenue Cycle Knowledge Bank | Learn the Why. Practise the Work.</title>
+<meta name="description" content="A practical learning journey for US healthcare revenue cycle management: understand the foundations, reason through decisions, and practise applying knowledge.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <style>
-  .hero{padding:56px 0 20px;}
-  .hero h1{font-size:42px; line-height:1.1; margin:0 0 18px; max-width:16ch;}
-  .hero h1 span{color:var(--gold);}
-  .hero p.lead{color:var(--slate); font-size:16.5px; max-width:62ch; margin:0 0 26px;}
-  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
-
-  .philosophy{
-    font-family:'Space Grotesk',sans-serif; font-size:22px; text-align:center; color:var(--white);
-    padding:34px 20px; margin:50px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  }
-  .philosophy span{color:var(--mint);}
-
-  .mission-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:10px 0 50px;}
-  .mission-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:28px 30px;}
-  .mission-card h2{font-size:15px; text-transform:uppercase; letter-spacing:.1em; color:var(--mint); margin:0 0 14px; font-family:'IBM Plex Mono',monospace;}
-  .mission-card p{color:#D6DEE6; font-size:15px; margin:0 0 12px;}
-  .mission-card p:last-child{margin-bottom:0;}
-  .north-star{font-style:normal; border-left:2px solid var(--gold); padding-left:16px; color:var(--white);}
-
-  .not-list{columns:2; gap:24px; color:var(--slate); font-size:14px; margin:0; padding-left:18px;}
-  .not-list li{margin-bottom:8px; break-inside:avoid;}
-
-  /* ---------- wheel navigator ---------- */
-  .wheel-section{padding:8px 0 60px; text-align:center;}
-  .wheel-section h2{font-size:26px; margin:0 0 8px;}
-  .wheel-section > p{color:var(--slate); font-size:14.5px; margin:0 0 30px;}
-  .wheel-box{position:relative; display:flex; align-items:center; justify-content:center; margin:0 auto;}
-
-  .wheel-flex{display:flex; gap:44px; align-items:center; justify-content:center; flex-wrap:wrap;}
-  .wheel-stage{position:relative; width:100%; max-width:440px; aspect-ratio:1/1; margin:0 auto; flex-shrink:0;}
-  .wheel-stage svg.wheel{position:absolute; inset:14%; width:72%; height:72%; overflow:visible;}
-
-  .ring-icon{
-    position:absolute; width:15%; aspect-ratio:1/1; transform:translate(-50%,-50%);
-    text-decoration:none; cursor:pointer;
-  }
-  .ring-icon-inner{
-    width:100%; height:100%; border-radius:50%; overflow:hidden; position:relative;
-    border:2px solid var(--line); background:var(--card); display:flex; align-items:center; justify-content:center;
-    transition:border-radius .4s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, transform .25s ease, border-color .25s ease;
-  }
-  .ring-icon-inner img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0;}
-  .ring-icon-fallback{font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--slate); letter-spacing:.04em; z-index:1;}
-  .ring-icon:hover .ring-icon-inner, .ring-icon:focus-visible .ring-icon-inner{
-    border-radius:32% 68% 66% 34% / 34% 30% 70% 66%;
-    transform:scale(1.16);
-    border-color:var(--ic);
-    box-shadow:0 0 0 1px var(--ic), 0 0 20px 4px var(--ic), 0 0 38px 12px color-mix(in srgb, var(--ic) 45%, transparent);
-  }
-  .ring-icon:hover .ring-icon-fallback, .ring-icon:focus-visible .ring-icon-fallback{color:var(--white);}
-
-  .wheel-preview{
-    width:280px; max-width:100%; aspect-ratio:4/3; border-radius:14px; overflow:hidden; position:relative;
-    background:var(--card); border:1px solid var(--line); flex-shrink:0;
-  }
-  .wheel-preview img{width:100%; height:100%; object-fit:cover; object-position:center; position:absolute; inset:0; opacity:0; transition:opacity .35s ease;}
-  .wheel-preview-fallback{
-    position:absolute; inset:0; display:flex; flex-direction:column; gap:8px; align-items:center; justify-content:center;
-    background:linear-gradient(150deg, rgba(79,209,174,.14), var(--card)); text-align:center; padding:0 22px;
-  }
-  .wheel-preview-fallback svg{width:26px; height:26px; opacity:.5;}
-  .wheel-preview-fallback span{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--slate);}
-  .wheel-preview-caption{
-    position:absolute; left:0; right:0; bottom:0; padding:12px 16px;
-    background:linear-gradient(0deg, rgba(8,15,24,.9), transparent);
-    font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--white); text-align:left;
-  }
-  @media (prefers-reduced-motion:reduce){
-    .ring-icon-inner{transition:none;}
-    .wheel-preview img{transition:none;}
-  }
-  @media (max-width:560px){
-    .wheel-preview{width:100%;}
-  }
-  svg.wheel{width:100%; max-width:420px; height:auto; overflow:visible;}
-  .seg-link{cursor:pointer; text-decoration:none;}
-  .seg{transition:opacity .2s ease, filter .2s ease, transform .2s ease; opacity:.9; transform-origin:150px 150px;}
-  .seg-link:hover .seg, .seg-link:focus-visible .seg{opacity:1; filter:brightness(1.18); transform:scale(1.035);}
-  .seg-link:active .seg{transform:scale(.98);}
-
-  .mission-card, .day-pill{opacity:0; transform:translateY(14px);}
-  .mission-card.in, .day-pill.in{opacity:1; transform:translateY(0); transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.3,1);}
-  @media (prefers-reduced-motion:reduce){
-    .mission-card, .day-pill{opacity:1 !important; transform:none !important;}
-  }
-  .seg text{font-family:'IBM Plex Mono',monospace; pointer-events:none;}
-  .wheel-center-label{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; fill:var(--white);}
-  .wheel-center-sub{font-family:'IBM Plex Mono',monospace; font-size:8.5px; fill:var(--slate);}
-  .wheel-legend{
-    display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:640px; margin:34px auto 0;
-  }
-  .wheel-legend a{
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; padding:8px 13px; border-radius:999px;
-    border:1px solid var(--line); background:var(--card); color:var(--slate); text-decoration:none; transition:.15s;
-  }
-  .wheel-legend a:hover{color:var(--white); border-color:var(--lc);}
-  .wheel-legend a .sw{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--lc); margin-right:6px;}
-
-  @media (max-width:860px){
-    .mission-grid{grid-template-columns:1fr;}
-    .not-list{columns:1;}
-    .hero h1{font-size:32px;}
-  }
+:root{--accent:#4FD1AE}
+body{background:radial-gradient(ellipse at 85% 5%,rgba(79,209,174,.09),transparent 32%),var(--ink)}
+.nav{gap:18px}.brand{font-size:16px}.nav-links{gap:18px;flex-wrap:wrap;justify-content:flex-end}
+.launch-hero{padding:76px 0 62px;display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center}
+.kicker,.eyebrow{font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--mint)}
+.kicker{display:inline-flex;gap:9px;align-items:center;border:1px solid rgba(79,209,174,.35);padding:8px 12px;border-radius:999px;background:rgba(79,209,174,.07)}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--mint);display:inline-block}
+.launch-hero h1{font-size:clamp(38px,5.2vw,64px);line-height:1.02;letter-spacing:-.045em;margin:22px 0}
+.launch-hero h1 span{color:var(--gold)}
+.hero-copy{font-size:18px;color:#D6DEE6;max-width:60ch}
+.hero-note{font-size:13px;color:var(--slate);margin-top:18px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn.primary{background:var(--mint);color:#08221b;border-color:var(--mint);font-weight:700}
+.hero-visual{position:relative;border:1px solid var(--line);border-radius:24px;padding:24px;background:linear-gradient(145deg,#1b344a,#101e2d);box-shadow:0 28px 80px rgba(0,0,0,.22)}
+.hero-visual:before{content:"";position:absolute;width:170px;height:170px;right:-18px;top:-20px;border-radius:50%;background:rgba(232,185,72,.08);filter:blur(3px)}
+.visual-label{font-family:'IBM Plex Mono',monospace;color:var(--slate);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.journey-step{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);position:relative}
+.journey-step:last-child{border:0}
+.step-num{display:grid;place-items:center;min-width:34px;height:34px;border:1px solid #386b68;border-radius:10px;color:var(--mint);font-family:'IBM Plex Mono',monospace}
+.journey-step strong{display:block;font-size:15px;margin-bottom:3px}
+.journey-step span{display:block;color:var(--slate);font-size:13px}
+.section{padding:54px 0}
+.section-head{max-width:720px;margin-bottom:28px}
+.section-head h2{font-size:clamp(28px,3vw,40px);line-height:1.1;margin:10px 0}
+.section-head p{color:var(--slate);max-width:65ch}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:rgba(22,40,60,.72)}
+.feature-card .num{font-family:'IBM Plex Mono',monospace;color:var(--gold);font-size:12px}
+.feature-card h3{font-size:20px;margin:12px 0 8px}
+.feature-card p{color:var(--slate);font-size:14px;margin:0}
+.mission-panel{border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,rgba(79,209,174,.08),rgba(22,40,60,.8));padding:30px}
+.mission-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.mission-top h2{font-size:clamp(26px,3vw,36px);margin:6px 0 8px}
+.mission-top p{color:var(--slate);max-width:65ch;margin:0}
+.mission-tag{font:11px 'IBM Plex Mono',monospace;color:var(--gold);border:1px solid rgba(232,185,72,.35);padding:7px 10px;border-radius:999px;white-space:nowrap}
+.scenario{margin-top:25px;padding:24px;background:#0c1926;border:1px solid #28405a;border-radius:14px}
+.scenario h3{font-size:20px;margin:0 0 8px}
+.scenario p{color:#D6DEE6;margin:0 0 16px}
+.choice-list{display:grid;gap:10px}
+.choice{width:100%;text-align:left;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:#16283c;border:1px solid #28405a;color:var(--white);border-radius:10px;font:14px 'IBM Plex Sans',sans-serif;cursor:pointer}
+.choice:hover,.choice:focus-visible{border-color:var(--mint);background:#1b344a}
+.choice b{font:12px 'IBM Plex Mono',monospace;color:var(--mint);border:1px solid #386b68;border-radius:6px;padding:3px 6px}
+.feedback{display:none;margin-top:16px;padding:16px;border-radius:10px;background:rgba(79,209,174,.08);border:1px solid rgba(79,209,174,.4)}
+.feedback.show{display:block}.feedback strong{display:block;margin-bottom:5px}.feedback p{color:#D6DEE6;margin:0;font-size:14px}
+.scenario-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.small-note{font-size:12px;color:var(--slate);margin-top:14px}
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.path-card{display:flex;gap:18px;align-items:flex-start;text-decoration:none;padding:23px;border:1px solid var(--line);border-radius:15px;background:var(--card);transition:transform .2s,border-color .2s}
+.path-card:hover{transform:translateY(-2px);border-color:var(--mint)}
+.path-icon{font:13px 'IBM Plex Mono',monospace;color:var(--mint);border:1px solid #386b68;border-radius:10px;padding:10px}
+.path-card h3{margin:0 0 6px;font-size:18px}.path-card p{margin:0;color:var(--slate);font-size:13px}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.roadmap div{border-top:2px solid var(--line);padding:15px 10px 0 0}
+.roadmap span{font:11px 'IBM Plex Mono',monospace;color:var(--gold)}
+.roadmap strong{display:block;margin:7px 0 4px}.roadmap p{color:var(--slate);font-size:12px;margin:0}
+.bottom-cta{padding:38px;border-radius:18px;background:#172b40;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.bottom-cta h2{margin:0 0 8px;font-size:28px}.bottom-cta p{margin:0;color:var(--slate)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:28px 24px 40px!important;color:var(--slate);font-size:12px}
+footer a{color:var(--mint)}
+@media(max-width:850px){.launch-hero{grid-template-columns:1fr;gap:28px;padding-top:50px}.three-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr 1fr}.nav{align-items:flex-start;flex-direction:column}.nav-links{justify-content:flex-start}.path-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.wrap{padding:0 18px}.launch-hero h1{font-size:39px}.mission-panel{padding:18px}.scenario{padding:16px}.roadmap{grid-template-columns:1fr 1fr}.bottom-cta{padding:24px}}
 </style>
 </head>
 <body>
-
 <header class="site">
-  <div class="nav">
-    <a href="index.html" class="brand"><span class="dot"></span> Revenue Cycle Knowledge Bank</a>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="index.html#week">The Week</a>
-      <a href="index.html#subscribe">Join the journey</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.linkedin.com/showcase/rcmkbank" target="_blank" rel="noopener">Follow us on LinkedIn</a>
-    </nav>
-  </div>
+ <div class="nav">
+  <a href="index.html" class="brand"><span class="dot"></span> Revenue Cycle Knowledge Bank</a>
+  <nav class="nav-links" aria-label="Main navigation">
+   <a href="#approach">Our approach</a>
+   <a href="#first-mission">Try a mission</a>
+   <a href="#journey">Learning journey</a>
+   <a href="contact.html">Contact</a>
+  </nav>
+ </div>
 </header>
-
 <main class="wrap">
-
-  <div class="banner" style="margin-top:50px;">
-    <img src="images/home-banner.png" alt="RCM knowledge bank banner"
-         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="thumb-fallback" style="display:none;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      <span>Add images/home-banner.png for a custom header image</span>
-    </div>
+ <section class="launch-hero">
+  <div>
+   <div class="kicker"><i></i> An early look at a different way to learn RCM</div>
+   <h1>Don't just learn the process.<br><span>Learn to think through it.</span></h1>
+   <p class="hero-copy">Healthcare revenue cycle management is a chain of decisions. We are building a learning experience that helps people understand the foundations, ask better questions, and practise applying what they know.</p>
+   <div class="actions">
+    <a class="btn primary" href="#first-mission">Try your first RCM mission <span aria-hidden="true">→</span></a>
+    <a class="btn" href="#approach">Explore our approach</a>
+   </div>
+   <p class="hero-note">A work in progress, built around one principle: understanding comes before memorising.</p>
   </div>
-
-  <section class="hero">
-    <p class="eyebrow">Revenue Cycle Knowledge Bank · Our journey begins</p>
-    <h1>Deposit Time.<br><span>Withdraw Knowledge.</span></h1>
-    <p class="lead">Healthcare Revenue Cycle Management is more than codes, claims, and payments. We help learners understand the foundations, explore the reasoning, and build practical capability—one step at a time.</p>
-    <div class="hero-ctas">
-      <a href="friday-healthcare-foundation.html" class="btn primary">Start learning</a>
-      <a href="#mission" class="btn">Discover our vision</a>
-    </div>
-  </section>
-
-  <section class="journey-intro" aria-labelledby="journey-title">
-    <p class="eyebrow">Learn · Understand · Apply</p>
-    <h2 id="journey-title">Your journey starts here.</h2>
-    <p>Start with the “why,” connect knowledge to real revenue-cycle situations, and build confidence through practice. This is an early step in a larger learning journey—and we’re building it thoughtfully.</p>
-    <div class="journey-cards">
-      <a class="journey-card" href="friday-healthcare-foundation.html">
-        <span class="journey-number">01 · BUILD FOUNDATIONS</span>
-        <h3>Understand the healthcare story</h3>
-        <p>Explore the clinical concepts behind the services that move through the revenue cycle.</p>
-        <span class="journey-link">Begin with foundations →</span>
-      </a>
-      <a class="journey-card" href="thursday-ar-scenarios.html">
-        <span class="journey-number">02 · THINK THROUGH CASES</span>
-        <h3>Reason through RCM scenarios</h3>
-        <p>Practise asking what happened, why it happened, and what should be checked next.</p>
-        <span class="journey-link">Explore scenarios →</span>
-      </a>
-      <a class="journey-card" href="contact.html">
-        <span class="journey-number">03 · SHAPE THE JOURNEY</span>
-        <h3>Help us build better learning</h3>
-        <p>Share a question or tell us what would make RCM learning more useful to you.</p>
-        <span class="journey-link">Share feedback →</span>
-      </a>
-    </div>
-  </section>
-
-  <section id="mission" class="mission-grid" style="margin-top:20px;">
-    <div class="mission-card">
-      <h2>Executive Vision</h2>
-      <p>Revenue Cycle Knowledge Bank is a trusted, cloud-ready knowledge and learning ecosystem for Healthcare
-        Revenue Cycle Management. Its purpose is to transform complex healthcare revenue cycle
-        knowledge into something people can learn, understand, practice, apply, measure, and use.</p>
-      <p>We began as a rigorous education platform for people entering or advancing in
-        Healthcare RCM — and will grow into an ecosystem connecting learners, RCM professionals,
-        educators, healthcare organizations, employers, and patients seeking to understand their
-        own medical bills.</p>
-    </div>
-    <div class="mission-card">
-      <h2>Mission</h2>
-      <p>Revenue Cycle Knowledge Bank exists to make Healthcare Revenue Cycle Management knowledge
-        understandable, practical, trustworthy, and actionable — helping learners build
-        real-world skills and careers, helping organizations develop capable RCM professionals,
-        and ultimately helping patients better understand and advocate for themselves within the
-        healthcare billing system.</p>
-    </div>
-  </section>
-
-  <div class="philosophy">
-    <span>“</span>Deposit Time <span>→</span> Withdraw Knowledge<span>”</span>
+  <div class="hero-visual" aria-label="Learning journey preview">
+   <div class="visual-label">The learning loop</div>
+   <div class="journey-step"><div class="step-num">01</div><div><strong>Understand the story</strong><span>What happened to the patient and why?</span></div></div>
+   <div class="journey-step"><div class="step-num">02</div><div><strong>Learn the foundation</strong><span>Build the concept behind the workflow.</span></div></div>
+   <div class="journey-step"><div class="step-num">03</div><div><strong>Make a decision</strong><span>Choose an action and reason through it.</span></div></div>
+   <div class="journey-step"><div class="step-num">04</div><div><strong>See the consequence</strong><span>Connect the decision to operational outcomes.</span></div></div>
   </div>
+ </section>
 
-  <section class="mission-grid">
-    <div class="mission-card">
-      <h2>North Star</h2>
-      <p class="north-star">Revenue Cycle Knowledge Bank exists to turn Healthcare Revenue Cycle Management
-        knowledge into practical, measurable capability — and ultimately use that knowledge to
-        empower professionals, organizations, and patients.</p>
-    </div>
-    <div class="mission-card">
-      <h2>What We Are Building Toward</h2>
-      <ul class="not-list">
-        <li>Simply a blog</li>
-        <li>A collection of LinkedIn posts</li>
-        <li>A static RCM encyclopedia</li>
-        <li>A certification-only website</li>
-        <li>A generic video-course marketplace</li>
-        <li>A chatbot without a trustworthy knowledge foundation</li>
-      </ul>
-    </div>
-  </section>
+ <section id="approach" class="section">
+  <div class="section-head">
+   <p class="eyebrow">Why we're building this</p>
+   <h2>From knowing an answer to understanding a system.</h2>
+   <p>Many resources explain codes, rules, and workflows. Our goal is to connect those pieces: the clinical story, the documentation, the claim, the payment, and the decisions that affect the result.</p>
+  </div>
+  <div class="three-grid">
+   <article class="feature-card"><span class="num">01 / FOUNDATION</span><h3>Understand the why</h3><p>Learn the terminology, clinical context, rules, and basic maths that make RCM decisions understandable.</p></article>
+   <article class="feature-card"><span class="num">02 / REASONING</span><h3>Think through the case</h3><p>Work through fictional scenarios, weigh possible actions, and learn why one next step is stronger than another.</p></article>
+   <article class="feature-card"><span class="num">03 / APPLICATION</span><h3>Practise the work</h3><p>Build toward guided simulations where learners can follow accounts, claims, balances, and outcomes safely.</p></article>
+  </div>
+ </section>
 
-  <section id="week" class="wheel-section">
-    <p class="eyebrow" style="text-align:left;">Explore</p>
-    <h2>Eight ways into the knowledge bank</h2>
-    <p>Seven daily series, plus general RCM knowledge that doesn't belong to any one day. Choose a stream to explore its lessons.</p>
-    <div class="wheel-flex">
-      <div class="wheel-stage" id="wheelStage">
-        <svg class="wheel" viewBox="0 0 300 300" id="wheelSvg" role="img" aria-label="Eight content series, click a slice to open it"></svg>
-        <!-- ring icons injected by JS -->
-      </div>
-      <div class="wheel-preview" id="wheelPreview">
-        <img id="wheelPreviewImg" src="" alt="">
-        <div class="wheel-preview-fallback" id="wheelPreviewFallback">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span id="wheelPreviewHint">Select a stream to see where it can take you</span>
-        </div>
-        <div class="wheel-preview-caption" id="wheelPreviewCaption" style="display:none;"></div>
-      </div>
+ <section id="first-mission" class="section">
+  <div class="mission-panel">
+   <div class="mission-top">
+    <div><p class="eyebrow">A first taste · 3 minutes</p><h2>Your first RCM mission</h2><p>A fictional patient visit has reached the billing team. Before you act, pause and decide what you need to understand first. There isn't a trick—this is about learning how to think.</p></div>
+    <span class="mission-tag">TRAINING SCENARIO · FICTIONAL DATA</span>
+   </div>
+   <div class="scenario" id="scenarioBox">
+    <h3>Mission 01 — Before the claim goes out</h3>
+    <p><strong>Scenario:</strong> Jordan visits an in-network clinic. The encounter is complete, but the billing team notices that the coverage information in the account was last checked several weeks ago. The claim has not yet been submitted.</p>
+    <p><strong>What is the best next step?</strong></p>
+    <div class="choice-list" role="group" aria-label="Choose the next action">
+     <button class="choice" data-choice="a"><b>A</b><span>Submit the claim immediately because the patient has visited this clinic before.</span></button>
+     <button class="choice" data-choice="b"><b>B</b><span>Check coverage and relevant details for the date of service, then address any discrepancy before submission.</span></button>
+     <button class="choice" data-choice="c"><b>C</b><span>Move the account to patient responsibility because coverage has not been checked recently.</span></button>
     </div>
-    <div class="wheel-legend" id="wheelLegend"></div>
-  </section>
+    <div class="feedback" id="feedback" aria-live="polite"><strong id="feedbackTitle"></strong><p id="feedbackText"></p></div>
+    <div class="scenario-actions"><button class="btn" id="resetMission" type="button">Try again</button><a class="btn primary" href="first-mission.html">Continue the learning journey →</a></div>
+    <p class="small-note">Learning point: eligibility verification can help confirm coverage information, but it is not a guarantee of payment. Real workflows must follow the provider's procedures and payer requirements.</p>
+   </div>
+  </div>
+ </section>
 
-  <section class="newsletter" id="subscribe">
-    <div>
-      <h3>Be part of the learning journey</h3>
-      <p>This is an early look at what we're building. Share a question, suggest a topic, or tell us what would help you learn.</p>
-    </div>
-    <a class="btn primary" href="contact.html">Share your feedback →</a>
-  </section>
+ <section id="journey" class="section">
+  <div class="section-head"><p class="eyebrow">The journey we're building</p><h2>A learning path, not just a feed.</h2><p>This early version is a first step. The wider vision connects foundational lessons, guided decisions, practical simulations, and measurable learner growth.</p></div>
+  <div class="roadmap">
+   <div><span>STAGE 01</span><strong>Learn</strong><p>Build a clear foundation.</p></div>
+   <div><span>STAGE 02</span><strong>Reason</strong><p>Explain why an action fits.</p></div>
+   <div><span>STAGE 03</span><strong>Practise</strong><p>Work through safe simulations.</p></div>
+   <div><span>STAGE 04</span><strong>Grow</strong><p>Track capability over time.</p></div>
+  </div>
+ </section>
 
+ <section class="section">
+  <div class="bottom-cta"><div><h2>Deposit time. Withdraw knowledge.</h2><p>One learner, one concept, one better decision at a time.</p></div><a class="btn primary" href="contact.html">Share early feedback →</a></div>
+ </section>
 </main>
-
-<footer class="wrap">
-  <div>© <span id="year"></span> Revenue Cycle Knowledge Bank.</div>
-  <div>Learning in progress ·<a href="https://www.linkedin.com/showcase/rcmkbank" target="_blank" rel="noopener">Follow us on LinkedIn</a></div>
-</footer>
-
+<footer class="wrap"><div>© <span id="year"></span> Revenue Cycle Knowledge Bank</div><div>Independent learning initiative · A learning journey in progress</div></footer>
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* ---------- 8-part wheel navigator ---------- */
-const SERIES = [
-  { tag:'MON', label:'Healthcare Regulations',       file:'monday-regulations.html',              color:'#5AA8D8' },
-  { tag:'TUE', label:"Smile on Every Claim",         file:'tuesday-smile-on-every-claim.html',    color:'#4DBA75' },
-  { tag:'WED', label:'ANSI CARC Codes',              file:'wednesday-carc-codes.html',            color:'#F28C28' },
-  { tag:'THU', label:'AR Scenarios',                 file:'thursday-ar-scenarios.html',           color:'#8FA3B8' },
-  { tag:'FRI', label:'Healthcare Foundation',        file:'friday-healthcare-foundation.html',    color:'#B9A7E8' },
-  { tag:'SAT', label:'Dental RCM',                   file:'saturday-dental-rcm.html',             color:'#35C6C0' },
-  { tag:'SUN', label:'Case Study',                   file:'sunday-case-study.html',               color:'#D9A441' },
-  { tag:'GEN', label:'General RCM Posts',            file:'general-rcm-posts.html',               color:'#A78BFA' },
-];
-
-const svg = document.getElementById('wheelSvg');
-const cx=150, cy=150, rOuter=140, rInner=70;
-const n = SERIES.length;
-const seg = 360/n;
-
-function polar(r, angleDeg){
-  const a = (angleDeg - 90) * Math.PI/180;
-  return [cx + r*Math.cos(a), cy + r*Math.sin(a)];
-}
-function arcPath(rOut, rIn, a0, a1){
-  const [x0,y0]=polar(rOut,a0), [x1,y1]=polar(rOut,a1);
-  const [x2,y2]=polar(rIn,a1), [x3,y3]=polar(rIn,a0);
-  const large = (a1-a0) > 180 ? 1 : 0;
-  return `M ${x0} ${y0} A ${rOut} ${rOut} 0 ${large} 1 ${x1} ${y1} L ${x2} ${y2} A ${rIn} ${rIn} 0 ${large} 0 ${x3} ${y3} Z`;
-}
-
-let svgHTML = '';
-SERIES.forEach((s,i)=>{
-  const a0 = i*seg, a1=(i+1)*seg - 1.6;
-  const path = arcPath(rOuter, rInner, a0, a1);
-  const [lx,ly] = polar((rOuter+rInner)/2, (a0+a1)/2);
-  svgHTML += `<a href="${s.file}" class="seg-link" aria-label="${s.label}">
-      <g class="seg">
-        <path d="${path}" fill="${s.color}"></path>
-        <text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="#0F1E2E" font-weight="600">${s.tag}</text>
-      </g>
-    </a>`;
+document.getElementById('year').textContent=new Date().getFullYear();
+const feedbacks={
+ a:{title:'Good instinct to pause—but this skips an important check.',text:'A prior visit does not establish that coverage is unchanged for today’s date of service. Confirm the relevant coverage details and follow the clinic’s workflow before submitting the claim.'},
+ b:{title:'Strong choice: verify the facts before moving the claim forward.',text:'Coverage can change. Checking the relevant information for the date of service helps identify issues early. Remember, an eligibility response is not a guarantee that the claim will be paid.'},
+ c:{title:'This jumps to a conclusion without enough evidence.',text:'A stale verification date does not by itself mean the patient owes the balance. First establish the coverage facts and follow the provider’s process for discrepancies.'}
+};
+document.querySelectorAll('[data-choice]').forEach(btn=>btn.addEventListener('click',()=>{
+ const f=feedbacks[btn.dataset.choice];document.getElementById('feedbackTitle').textContent=f.title;document.getElementById('feedbackText').textContent=f.text;document.getElementById('feedback').classList.add('show');
+ document.querySelectorAll('[data-choice]').forEach(b=>{b.disabled=true;b.style.opacity=b===btn?'1':'.65'});
+}));
+document.getElementById('resetMission').addEventListener('click',()=>{
+ document.getElementById('feedback').classList.remove('show');document.querySelectorAll('[data-choice]').forEach(b=>{b.disabled=false;b.style.opacity='1'});
 });
-svgHTML += `<circle cx="${cx}" cy="${cy}" r="${rInner-6}" fill="#16283C" stroke="#28405A"/>
-  <text x="${cx}" y="${cy-6}" text-anchor="middle" class="wheel-center-label">RKB</text>
-  <text x="${cx}" y="${cy+9}" text-anchor="middle" class="wheel-center-sub">LEARNING</text>
-  <text x="${cx}" y="${cy+19}" text-anchor="middle" class="wheel-center-sub">JOURNEY</text>`;
-svg.innerHTML = svgHTML;
-
-/* ---------- ring icons around the wheel ---------- */
-const stage = document.getElementById('wheelStage');
-const ringR = 44; /* percent from center */
-SERIES.forEach((s,i)=>{
-  const a0 = i*seg, a1=(i+1)*seg - 1.6;
-  const mid = (a0+a1)/2;
-  const rad = (mid - 90) * Math.PI/180;
-  const x = 50 + ringR * Math.cos(rad);
-  const y = 50 + ringR * Math.sin(rad);
-  const icon = document.createElement('a');
-  icon.href = s.file;
-  icon.className = 'ring-icon';
-  icon.style.left = x + '%';
-  icon.style.top = y + '%';
-  icon.style.setProperty('--ic', s.color);
-  icon.setAttribute('aria-label', s.label);
-  icon.innerHTML = `
-    <span class="ring-icon-inner">
-      <img src="images/banners/${s.tag}.jpg" alt="" loading="lazy"
-           onerror="this.style.display='none';">
-      <span class="ring-icon-fallback">${s.tag}</span>
-    </span>`;
-  icon.addEventListener('mouseenter', ()=> updatePreview(s));
-  icon.addEventListener('focus', ()=> updatePreview(s));
-  stage.appendChild(icon);
-});
-
-/* also preview on wheel-slice hover, not just the ring icons */
-document.querySelectorAll('.seg-link').forEach((link, i)=>{
-  link.addEventListener('mouseenter', ()=> updatePreview(SERIES[i]));
-  link.addEventListener('focus', ()=> updatePreview(SERIES[i]));
-});
-
-/* ---------- preview panel ---------- */
-const previewImg = document.getElementById('wheelPreviewImg');
-const previewFallback = document.getElementById('wheelPreviewFallback');
-const previewHint = document.getElementById('wheelPreviewHint');
-const previewCaption = document.getElementById('wheelPreviewCaption');
-
-function updatePreview(s){
-  const src = `images/banners/${s.tag}.jpg`;
-  const tester = new Image();
-  tester.onload = () => {
-    previewImg.src = src;
-    previewImg.style.opacity = 1;
-    previewFallback.style.display = 'none';
-  };
-  tester.onerror = () => {
-    previewImg.style.opacity = 0;
-    previewFallback.style.display = 'flex';
-    previewHint.textContent = `Explore ${s.label} using the links below`;
-  };
-  tester.src = src;
-  previewCaption.textContent = `${s.tag} · ${s.label}`;
-  previewCaption.style.display = 'block';
-}
-
-const legend = document.getElementById('wheelLegend');
-legend.innerHTML = SERIES.map(s =>
-  `<a href="${s.file}" style="--lc:${s.color};" class="day-pill"></a>`
-).join('');
-document.querySelectorAll('.wheel-legend a').forEach((a, i)=>{
-  const s = SERIES[i];
-  a.innerHTML = `<span class="sw"></span>${s.tag} · ${s.label}`;
-  a.addEventListener('mouseenter', ()=> updatePreview(s));
-  a.addEventListener('focus', ()=> updatePreview(s));
-});
-
-/* ---------- scroll-reveal for mission cards + legend pills ---------- */
-const revealTargets = document.querySelectorAll('.mission-card, .day-pill');
-if('IntersectionObserver' in window){
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach((entry, i)=>{
-      if(entry.isIntersecting){
-        setTimeout(()=> entry.target.classList.add('in'), i * 45);
-        io.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.15});
-  revealTargets.forEach(el => io.observe(el));
-} else {
-  revealTargets.forEach(el => el.classList.add('in'));
-}
 </script>
 </body>
 </html>

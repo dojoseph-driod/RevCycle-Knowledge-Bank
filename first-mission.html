@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First RCM Mission | Revenue Cycle Knowledge Bank</title>
+<meta name="description" content="A fictional, guided RCM learning mission focused on coverage verification and operational reasoning.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+:root{--accent:#4FD1AE}body{background:radial-gradient(ellipse at 80% 0%,rgba(79,209,174,.08),transparent 35%),var(--ink)}
+.mission-main{max-width:860px;margin:0 auto;padding:50px 24px 70px}.back{font:12px 'IBM Plex Mono',monospace;color:var(--mint);text-decoration:none}
+.mission-main h1{font-size:clamp(34px,5vw,52px);line-height:1.05;margin:20px 0 14px}.lead{color:#D6DEE6;font-size:17px;max-width:65ch}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:25px;margin-top:22px}.label{font:11px 'IBM Plex Mono',monospace;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}.panel h2{margin:8px 0 10px}.panel p{color:#D6DEE6}.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.data{padding:15px;background:#0e1b29;border:1px solid var(--line);border-radius:10px}.data span{display:block;color:var(--slate);font:10px 'IBM Plex Mono',monospace;text-transform:uppercase}.data strong{display:block;margin-top:6px;font-size:14px}
+.question{font-size:20px!important;color:var(--white)!important;font-weight:600}.choices{display:grid;gap:10px}.choices button{display:flex;gap:12px;text-align:left;padding:15px;background:#0e1b29;border:1px solid var(--line);border-radius:10px;color:var(--white);cursor:pointer;font:14px 'IBM Plex Sans',sans-serif}.choices button:hover{border-color:var(--mint)}.choices b{font:12px 'IBM Plex Mono',monospace;color:var(--mint)}
+.feedback{display:none;border:1px solid rgba(79,209,174,.4);background:rgba(79,209,174,.07);padding:17px;border-radius:10px;margin-top:15px}.feedback.show{display:block}.feedback p{margin-bottom:0}
+.next-step{display:none}.next-step.show{display:block}.note{color:var(--slate);font-size:12px}
+@media(max-width:600px){.data-grid{grid-template-columns:1fr}.mission-main{padding:35px 18px 50px}.panel{padding:18px}}
+</style></head>
+<body>
+<header class="site"><div class="nav"><a href="index.html" class="brand"><span class="dot"></span> Revenue Cycle Knowledge Bank</a><nav class="nav-links"><a href="index.html">Home</a><a href="index.html#journey">Learning journey</a><a href="contact.html">Feedback</a></nav></div></header>
+<main class="mission-main">
+<a class="back" href="index.html">← BACK TO THE KNOWLEDGE BANK</a>
+<p class="eyebrow" style="margin-top:32px">Guided learning · Mission 01</p>
+<h1>Before the claim goes out</h1>
+<p class="lead">In this mission, you will make two small decisions in a fictional outpatient workflow. Focus on the reason behind the action—not just the answer.</p>
+<div class="panel"><span class="label">The account at a glance</span><h2>Jordan's clinic visit</h2><p>Jordan completed a visit at an in-network clinic. The account is ready for billing, but the coverage information was last checked several weeks ago.</p><div class="data-grid"><div class="data"><span>Encounter</span><strong>Completed</strong></div><div class="data"><span>Claim status</span><strong>Not submitted</strong></div><div class="data"><span>Coverage check</span><strong>Needs review</strong></div></div><p class="note">All names and details in this mission are fictional. This is a learning simulation, not a payer connection or billing recommendation for a real account.</p></div>
+<div class="panel" id="q1"><span class="label">Decision 1 of 2</span><h2>What should happen next?</h2><p class="question">Which action best reduces avoidable uncertainty before claim submission?</p><div class="choices"><button data-q="1" data-a="a"><b>A</b><span>Submit now. The patient has visited this clinic before.</span></button><button data-q="1" data-a="b"><b>B</b><span>Check coverage details relevant to the date of service and follow the workflow for discrepancies.</span></button><button data-q="1" data-a="c"><b>C</b><span>Transfer the expected balance to the patient because the information is old.</span></button></div><div class="feedback" id="f1" aria-live="polite"></div></div>
+<div class="panel next-step" id="q2"><span class="label">Decision 2 of 2</span><h2>The response comes back</h2><p>The simulated eligibility response indicates active coverage for the date of service, but it also reminds you that benefits and claim payment depend on additional plan and claim details.</p><p class="question">What does this response allow you to conclude?</p><div class="choices"><button data-q="2" data-a="a"><b>A</b><span>The claim is guaranteed to be paid.</span></button><button data-q="2" data-a="b"><b>B</b><span>The coverage information appears active, but this alone does not guarantee claim payment.</span></button><button data-q="2" data-a="c"><b>C</b><span>No further claim checks are needed.</span></button></div><div class="feedback" id="f2" aria-live="polite"></div></div>
+<div class="panel next-step" id="finish"><span class="label">Mission debrief</span><h2>What you practised</h2><p>You separated a verification step from a payment guarantee. That distinction matters because eligibility, benefits, authorization, claim edits, medical necessity, and adjudication are related but not interchangeable.</p><p><strong>The thinking pattern:</strong> establish the facts → understand what the response does and does not say → take the next action supported by the evidence.</p><a class="btn primary" href="friday-healthcare-foundation.html">Explore the foundation lessons →</a> <a class="btn" href="index.html">Return home</a></div>
+</main>
+<footer class="wrap"><div>© <span id="year"></span> Revenue Cycle Knowledge Bank</div><div>Deposit Time. Withdraw Knowledge.</div></footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const answers={
+ 1:{a:{ok:false,title:'This assumes the facts have not changed.',text:'Prior visits do not establish current coverage for a new date of service. Verify the relevant details before proceeding.'},b:{ok:true,title:'Good decision: establish the facts first.',text:'Checking information relevant to the date of service helps identify discrepancies before submission. Continue to Decision 2.'},c:{ok:false,title:'The evidence does not support transferring responsibility.',text:'An old verification date does not mean the patient owes the balance. Confirm the relevant coverage information first.'}},
+ 2:{a:{ok:false,title:'Active eligibility is not a payment guarantee.',text:'A claim can still be affected by benefits, authorization, coding, documentation, network rules, and adjudication.'},b:{ok:true,title:'Exactly: use the response within its limits.',text:'An eligibility response provides information about coverage status. It does not guarantee that a particular service will be covered or paid.'},c:{ok:false,title:'Verification is one control, not the whole claim process.',text:'Other claim requirements and payer rules may still apply. Use the response as one piece of evidence.'}}
+};
+document.querySelectorAll('[data-q]').forEach(btn=>btn.addEventListener('click',()=>{
+ const q=Number(btn.dataset.q),a=answers[q][btn.dataset.a],f=document.getElementById('f'+q);
+ f.innerHTML='<strong>'+a.title+'</strong><p>'+a.text+'</p>';f.classList.add('show');
+ document.querySelectorAll('[data-q="'+q+'"]').forEach(b=>{b.disabled=true;b.style.opacity=b===btn?'1':'.55'});
+ if(q===1 && a.ok) document.getElementById('q2').classList.add('show');
+ if(q===2) document.getElementById('finish').classList.add('show');
+}));
+</script>
+</body></html>
