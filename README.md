@@ -1,4 +1,4 @@
-# Project Atlas — RCM Knowledge Bank
+# Revenue Cycle Knowledge Bank
 
 A free, multi-page interactive site for your RCM learning content, organized
 into a 7-day weekly series. Built from Project Atlas Vision & Mission v1.1.
@@ -68,8 +68,7 @@ thing that changes the color scheme per day. Global colors (background, mint,
 gold) live once in `:root` at the top of `styles.css`.
 
 ## Monetization roadmap (in order of effort)
-1. **Email list first** — connect the subscribe form (currently a placeholder
-   alert) to a free-tier tool like Buttondown, MailerLite, or Mailchimp.
+1. **Email list later** — the soft-launch homepage uses a feedback invitation instead of a fake subscription form. Add an email signup only after connecting and testing a real consent-based mailing-list service.
 2. **Display ads** once you have steady traffic — Google AdSense or Ezoic.
 3. **Digital products** — turn a series into a paid PDF (e.g. a full CARC/RARC
    cheat sheet from the Wednesday series) and sell it via Gumroad.
@@ -82,3 +81,22 @@ This matches Phase 1–2 of the Project Atlas roadmap (Knowledge Foundation →
 Learning Platform). Learner accounts, progress tracking, assessments, and the
 AR/denial calculators described in the vision doc are natural next phases
 once this content foundation is live.
+
+
+## Soft-launch update (October 2026)
+This version keeps the existing static HTML/CSS/JavaScript architecture and GitHub Pages publishing method. The soft-launch changes:
+- Uses **Revenue Cycle Knowledge Bank** as the public-facing brand; Project Atlas remains an internal development codename.
+- Adds a clear “Your journey starts here” section with links to existing Foundation, AR Scenarios, and Contact pages.
+- Improves the hero copy and directs “Start learning” to an existing lesson series.
+- Replaces the non-functional subscribe alert with a feedback invitation, so visitors are not told they subscribed when no mailing list is connected.
+- Aligns the wheel and series-page accent colors with the established RKB series identity.
+- Updates Contact-page branding and clarifies that visitors must not submit patient-identifiable or confidential information.
+
+### Publish this patch safely
+1. Download and unzip the patch archive.
+2. In your repository, upload/replace the files at the same relative paths shown in the ZIP (`index.html`, `contact.html`, the series HTML pages, and `assets/styles.css`). Do not upload the outer containing folder as a nested folder.
+3. Review the changed files in GitHub before committing to `main`.
+4. Wait for GitHub Pages to redeploy, then test the homepage, each wheel link, a lesson search/detail modal, and the Contact form.
+5. If the Contact form does not successfully submit, disable public submissions until its Formspree endpoint is confirmed. Never ask visitors to share real patient records or identifiers.
+
+This is a static-site soft launch. It does not add learner accounts, progress tracking, a live email subscription service, or a production payer-connected simulation.
