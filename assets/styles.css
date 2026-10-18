@@ -232,17 +232,3 @@ footer a{color:var(--mint); text-decoration:none;}
   .card{opacity:1 !important; transform:none !important;}
   .overlay, .overlay .post-detail{opacity:1 !important; transform:none !important;}
 }
-
-
-/* ---------- soft-launch learning journey ---------- */
-.journey-intro{padding:8px 0 48px;}
-.journey-intro h2{font-size:clamp(26px,3vw,34px);line-height:1.15;margin:0 0 12px;}
-.journey-intro > p:not(.eyebrow){color:var(--slate);font-size:15.5px;max-width:70ch;margin:0 0 24px;}
-.journey-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
-.journey-card{display:flex;flex-direction:column;gap:12px;min-height:220px;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:14px;text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
-.journey-card:hover,.journey-card:focus-visible{transform:translateY(-3px);border-color:var(--mint);background:var(--card-hi);}
-.journey-number{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--mint);}
-.journey-card h3{font-size:18px;line-height:1.25;margin:0;color:var(--white);}
-.journey-card p{font-size:13.5px;line-height:1.55;color:var(--slate);margin:0;flex:1;}
-.journey-link{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mint);}
-@media(max-width:760px){.journey-cards{grid-template-columns:1fr;}.journey-card{min-height:0;}}

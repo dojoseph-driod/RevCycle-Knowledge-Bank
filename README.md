@@ -1,102 +1,39 @@
-# Revenue Cycle Knowledge Bank
+# Revenue Cycle Knowledge Bank — Soft Launch Package
 
-A free, multi-page interactive site for your RCM learning content, organized
-into a 7-day weekly series. Built from Project Atlas Vision & Mission v1.1.
+**Brand promise:** Deposit Time. Withdraw Knowledge.
 
-## What's in the box
-```
-index.html                          Home — vision, mission, week navigator
-monday-regulations.html             MON — Healthcare Regulations
-tuesday-smile-on-every-claim.html   TUE — There's a Smile on Every Claim
-wednesday-carc-codes.html           WED — ANSI CARC Codes
-thursday-ar-scenarios.html          THU — AR Scenarios
-friday-healthcare-foundation.html   FRI — Healthcare Foundation
-saturday-dental-rcm.html            SAT — Dental RCM
-sunday-case-study.html              SUN — Case Study
-assets/styles.css                   Shared design system (all pages)
-assets/app.js                       Shared search + post-detail logic
-```
-Each series page ships with 3 sample lessons so you can see the format —
-replace them with your real LinkedIn posts.
+This is the public soft-launch experience for the Revenue Cycle Knowledge Bank. It is designed as a knowledge experience centre: a clear view of the vision, a working sample learning mission, pathways for individual learners / teams / healthcare practices, and a transparent master plan that distinguishes available features from development work and future plans.
 
-## Go live for free (GitHub Pages, ~10 minutes)
-1. Create a free GitHub account at github.com if you don't have one.
-2. Create a new **public** repository, e.g. `project-atlas`.
-3. Upload every file **keeping the folder structure** — `index.html` and all
-   the `.html` pages at the root, and the `assets` folder with `styles.css`
-   and `app.js` inside it. ("Add file → Upload files" supports drag-and-drop
-   of a whole folder in most browsers.)
-4. Go to **Settings → Pages**. Set Source to **Deploy from a branch**,
-   branch `main`, folder `/root`. Save.
-5. Wait ~1 minute. Your site is live at
-   `https://YOUR-USERNAME.github.io/project-atlas/`.
+## Pages
 
-**Important:** the folder structure must stay intact — every page links to
-`assets/styles.css` and `assets/app.js` with that exact relative path.
+- `index.html` — experience-centre homepage, sample mission, audience pathways, and status-labelled master plan.
+- `first-mission.html` — complete fictional learning mission with two decisions and explanatory feedback.
+- `contact.html` — pilot interest and feedback form with optional email-update consent.
+- `monday-regulations.html`, `tuesday-smile-on-every-claim.html`, `wednesday-carc-codes.html`, `thursday-ar-scenarios.html`, `friday-healthcare-foundation.html`, `saturday-dental-rcm.html`, `sunday-case-study.html`, `general-rcm-posts.html` — retained educational archive pages. They are not promoted from the homepage while their content is being reviewed and updated.
+- `assets/styles.css`, `assets/app.js`, `images/` — shared design system, archive interactions, and image assets.
 
-**Optional custom domain later:** GitHub Pages supports a custom domain for
-free — you'd only pay for the domain name itself (~$10-12/year), whenever
-you're ready.
+## Deployment
 
-## Adding your LinkedIn posts to a series
-Open the relevant day's `.html` file and find `const POSTS = [ ... ];` near
-the bottom. Copy an existing post object and paste your content in:
+This is a static site and can be deployed to GitHub Pages. Keep the directory structure intact. Upload the files and folders at the repository root, then enable **Settings → Pages → Deploy from a branch → `main` → `/(root)`** (or use the repository's existing Pages configuration).
 
-```js
-{
-  id: "MON-004", date: "2026-08-03", readTime: "3 min",
-  title: "Your post title here",
-  excerpt: "One or two sentence teaser shown on the card.",
-  body: [
-    "First paragraph of your LinkedIn post.",
-    "Second paragraph. Wrap key terms in <strong>...</strong> to highlight them."
-  ]
-}
-```
-Save, re-upload (or edit directly in GitHub's web editor), and the page
-updates automatically — search and the detail view work with no other changes.
+## Before announcing the soft launch
 
-## Editing the home page
-The Executive Vision, Mission, North Star, and "What Atlas Is Not" sections
-on `index.html` are pulled directly from your Vision & Mission v1.1 document.
-Edit the text inside the `.mission-card` sections directly in the HTML.
+1. Deploy to the intended GitHub Pages repository and test the actual published URL on desktop and mobile.
+2. Test every homepage CTA, the two mission pages, and the master-plan detail controls.
+3. Submit one controlled test through `contact.html` and confirm that the configured form service receives it. The form currently points to a Formspree endpoint already present in the source; verify that the endpoint is active and routed to the correct inbox before announcing the form publicly.
+4. Confirm the optional updates checkbox is recorded correctly by the form service. Do not send updates to people who did not opt in.
+5. Check that all local links and image references work after deployment.
+6. Review the archived LinkedIn content before adding series pages to homepage navigation or promoting the weekday series as a complete programme.
+7. Never ask visitors to submit real patient bills, identifiers, claim documents, or protected health information. The mission is fictional and is not connected to a payer.
 
-## Design system
-Every page shares `assets/styles.css`. Each series page sets its own accent
-color with one line (`--accent`) near the top of the page — that's the only
-thing that changes the color scheme per day. Global colors (background, mint,
-gold) live once in `:root` at the top of `styles.css`.
+## Product truth and access
 
-## Monetization roadmap (in order of effort)
-1. **Email list later** — the soft-launch homepage uses a feedback invitation instead of a fake subscription form. Add an email signup only after connecting and testing a real consent-based mailing-list service.
-2. **Display ads** once you have steady traffic — Google AdSense or Ezoic.
-3. **Digital products** — turn a series into a paid PDF (e.g. a full CARC/RARC
-   cheat sheet from the Wednesday series) and sell it via Gumroad.
-4. **Sponsored posts / affiliate links** from RCM software vendors once you
-   have an engaged niche audience.
-5. **Paid mini-course** — the 7-day structure already doubles as a course
-   outline once each series has 15-20 posts.
+- Available now means present in this static website and testable.
+- In development means the experience is being built and is not represented as a finished public feature.
+- Planned means future intent, not a delivery date or promise.
+- Self-learning knowledge resources are intended to remain free. Optional guided learning or facilitated services may have separate fees.
+- This soft-launch website does not provide learner accounts, progress tracking, live payer connections, or a production team/practice portal.
 
-This matches Phase 1–2 of the Project Atlas roadmap (Knowledge Foundation →
-Learning Platform). Learner accounts, progress tracking, assessments, and the
-AR/denial calculators described in the vision doc are natural next phases
-once this content foundation is live.
+## Content governance
 
-
-## Soft-launch update (October 2026)
-This version keeps the existing static HTML/CSS/JavaScript architecture and GitHub Pages publishing method. The soft-launch changes:
-- Uses **Revenue Cycle Knowledge Bank** as the public-facing brand; Project Atlas remains an internal development codename.
-- Adds a clear “Your journey starts here” section with links to existing Foundation, AR Scenarios, and Contact pages.
-- Improves the hero copy and directs “Start learning” to an existing lesson series.
-- Replaces the non-functional subscribe alert with a feedback invitation, so visitors are not told they subscribed when no mailing list is connected.
-- Aligns the wheel and series-page accent colors with the established RKB series identity.
-- Updates Contact-page branding and clarifies that visitors must not submit patient-identifiable or confidential information.
-
-### Publish this patch safely
-1. Download and unzip the patch archive.
-2. In your repository, upload/replace the files at the same relative paths shown in the ZIP (`index.html`, `contact.html`, the series HTML pages, and `assets/styles.css`). Do not upload the outer containing folder as a nested folder.
-3. Review the changed files in GitHub before committing to `main`.
-4. Wait for GitHub Pages to redeploy, then test the homepage, each wheel link, a lesson search/detail modal, and the Contact form.
-5. If the Contact form does not successfully submit, disable public submissions until its Formspree endpoint is confirmed. Never ask visitors to share real patient records or identifiers.
-
-This is a static-site soft launch. It does not add learner accounts, progress tracking, a live email subscription service, or a production payer-connected simulation.
+The broader Knowledge Bank uses a foundation-first teaching model: **Foundation → Understanding → Application**. Prefer authoritative primary sources for regulatory and operational claims. A catalogue entry does not automatically mean a lesson is published; content should be source-checked, reviewed, and status-labelled before public promotion.
