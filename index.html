@@ -64,7 +64,7 @@ body{background:radial-gradient(ellipse at 84% 4%,rgba(79,209,174,.10),transpare
     <div class="model-tile"><span class="tile-id">03 / PRACTISE</span><strong>Safe missions</strong><p>Use fictional scenarios to apply knowledge and learn from feedback.</p></div>
     <div class="model-tile"><span class="tile-id">04 / GROW</span><strong>Capability</strong><p>Build toward demonstrable skills and continuous learning.</p></div>
    </div><div class="model-base">DEPOSIT TIME. WITHDRAW KNOWLEDGE.</div></div>
-   <p class="model-caption">A view of the intended experience—not a claim that every room is open today. Hover or focus this model to reveal the vision.</p><div class="vision-hover-card" aria-label="The Knowledge Bank vision"><strong>The vision</strong><p>A connected healthcare knowledge world where every learner can move from understanding to reasoning, safe practice, and growing capability.</p><span>Explore the master plan below to see what is available today and what is still being built.</span></div>
+   <p class="model-caption">A view of the intended experience—not a claim that every room is open today. Hover on desktop or tap below on mobile to reveal the vision.</p><button class="vision-toggle" type="button" aria-expanded="false" aria-controls="visionCard">Explore the vision <span aria-hidden="true">＋</span></button><div class="vision-hover-card" id="visionCard" aria-label="The Knowledge Bank vision"><strong>The vision</strong><p>A connected healthcare knowledge world where every learner can move from understanding to reasoning, safe practice, and growing capability.</p><span>Explore the master plan below to see what is available today and what is still being built.</span></div>
   </aside>
  </section>
 
@@ -140,6 +140,16 @@ body{background:radial-gradient(ellipse at 84% 4%,rgba(79,209,174,.10),transpare
 <footer class="wrap"><div>© <span id="year"></span> Revenue Cycle Knowledge Bank</div><div>Deposit time. Withdraw knowledge. · <a href="contact.html">Pilot interest & feedback</a></div></footer>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
+const visionShowroom=document.querySelector('.showroom');
+const visionToggle=document.querySelector('.vision-toggle');
+if(visionShowroom && visionToggle){
+ visionToggle.addEventListener('click',()=>{
+  const open=visionShowroom.classList.toggle('vision-open');
+  visionToggle.setAttribute('aria-expanded',String(open));
+  visionToggle.innerHTML=open?'Close vision <span aria-hidden="true">−</span>':'Explore the vision <span aria-hidden="true">＋</span>';
+ });
+}
+
 
 const gallerySlides=[
  {image:'images/RKB-HFR-001.jpg',alt:'Healthcare foundations infographic: why regulations matter in revenue cycle management',kicker:'Start with the why',heading:'Understand the system before the task.',description:'Connect the healthcare context to the work that follows. Visual summaries are a starting point; the learning journey builds the reasoning behind them.',chips:['Foundation first','Source-aware','Built to connect'],href:'friday-healthcare-foundation.html'},

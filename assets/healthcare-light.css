@@ -97,3 +97,35 @@ p,li,label,.nav-links a,.btn,.field-group input,.field-group textarea,.field-gro
 @media(prefers-reduced-motion:reduce){.lesson-room,.showroom,.vision-hover-card{transition:none}}
 
 .lesson-room .room-art img{display:block;width:100%;height:100%;object-fit:contain;padding:9px;box-sizing:border-box;background:transparent}.lesson-room .room-art{flex-shrink:0}
+
+
+/* Version 7 — soft sky-blue canvas: calmer than white, with clear content contrast */
+:root{--ink:#EAF2F8;--card:#F8FBFE;--card-hi:#E3EEF7;--line:#CBDCE9}
+html{background:#EAF2F8}
+body{background:linear-gradient(180deg,#EAF2F8 0%,#E5EFF7 54%,#E8F1F8 100%);color:#17334A}
+header.site{background:rgba(235,244,250,.96);border-bottom-color:#C9DBE8;box-shadow:0 4px 18px rgba(35,74,105,.06)}
+main{background:transparent}
+section.section{background:transparent}
+.showroom{background:linear-gradient(145deg,#F4F9FC,#E3EFF7);border-color:#C6D9E7;box-shadow:0 22px 56px rgba(25,65,86,.09)}
+.model-window{background:linear-gradient(155deg,#EAF3F9,#DCEAF4);border-color:#C5D9E7}
+.model-tile{background:#F8FBFE;border-color:#CCDEE9}
+.audience-card,.feature-card,.plan-item,.principle,.gallery-shell,.info-card,.mission-main .panel,.wip-panel{background:#F8FBFE;border-color:#CFDFEA}
+.mission-panel{background:linear-gradient(135deg,#DDEEF7,#F5FAFD 58%,#E6F1F8);border-color:#C8DDE9}
+.master-plan{background:linear-gradient(150deg,#F6FAFD,#E2EEF6);border-color:#C8DAE7}
+.bottom-cta{background:linear-gradient(110deg,#DCECF6,#EAF3F9);border-color:#C8DDE9}
+.gallery-image-wrap,.thumb,.room-art{background:#DFECF5}
+.search input,.field-group input[type=text],.field-group input[type=email],.field-group textarea,.field-group select,.newsletter input[type=email]{background:#EFF5FA;border-color:#C9DCE8}
+.card,.day-card,.post-detail,.form-card,.newsletter{background:#F8FBFE;border-color:#CFDFEA}
+.plan-detail{background:#E1EFF7;border-color:#BDD5E5}
+.vision-toggle{display:none}
+/* On touch screens, use an explicit tap control instead of relying on hover. */
+@media(hover:none), (max-width:700px){
+ .showroom:hover,.showroom:focus-within{transform:none;box-shadow:0 22px 56px rgba(25,65,86,.09)}
+ .vision-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:12px 0 0;padding:12px 15px;border:1px solid #AFCBDE;border-radius:11px;background:#DDEBF5;color:#173F5B;font:600 16px Aptos,"Segoe UI",Arial,sans-serif;cursor:pointer}
+ .vision-hover-card{position:relative;left:auto;right:auto;bottom:auto;margin-top:12px;display:none;opacity:1;visibility:visible;transform:none;pointer-events:auto;background:#F8FBFE;box-shadow:0 10px 28px rgba(18,55,75,.12)}
+ .showroom.vision-open .vision-hover-card{display:block}
+ .vision-hover-card strong{font-size:22px}
+ .vision-hover-card p{font-size:17px}
+ .vision-hover-card span{font-size:15px}
+}
+@media(hover:hover) and (min-width:701px){.vision-toggle{display:none}.showroom:hover .vision-hover-card,.showroom:focus-within .vision-hover-card{opacity:1;visibility:visible;transform:translateY(0) scale(1)}}
