@@ -1,3 +1,9 @@
+# Visual refresh note — Release candidate v4
+
+This package now uses a light, professional healthcare visual system and includes an interactive visual-learning gallery on the homepage. The gallery uses bundled assets, so it does not depend on external image hosts. See `RELEASE-NOTES.md` and `SOFT-LAUNCH-CHECKLIST.md` for changes and remaining live checks.
+
+---
+
 # Revenue Cycle Knowledge Bank — Soft Launch Package
 
 **Brand promise:** Deposit Time. Withdraw Knowledge.
@@ -37,3 +43,11 @@ This is a static site and can be deployed to GitHub Pages. Keep the directory st
 ## Content governance
 
 The broader Knowledge Bank uses a foundation-first teaching model: **Foundation → Understanding → Application**. Prefer authoritative primary sources for regulatory and operational claims. A catalogue entry does not automatically mean a lesson is published; content should be source-checked, reviewed, and status-labelled before public promotion.
+
+
+## v5 learning rooms
+Open `rcm-basics.html`, `medical-rcm.html`, `dental-rcm.html`, `behavioral-rcm.html`, `mental-health-rcm.html`, `dme-rcm.html`, `vision-rcm.html`, `sandbox.html`, `kpis-metrics-validations.html`, `six-sigma-healthcare.html`, and `global-healthcare-roadmap.html` for the new interactive previews. All specialty examples are educational, use fictional scenarios, and require current source verification before operational use.
+
+
+## v5 learning rooms
+Open `rcm-basics.html`, `medical-rcm.html`, `dental-rcm.html`, `behavioral-rcm.html`, `mental-health-rcm.html`, `dme-rcm.html`, `vision-rcm.html`, `sandbox.html`, `kpis-metrics-validations.html`, `six-sigma-healthcare.html`, and `global-healthcare-roadmap.html` for the new interactive previews. All specialty examples are educational, use fictional scenarios, and require current source verification before operational use.
